@@ -1,0 +1,7 @@
+True
+Светлая
+Русский
+False
+dd
+dd
+dd
