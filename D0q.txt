@@ -1,7 +1,7 @@
 False
 Светлая
 Русский
-True
-mjbhkbk
-lklknkn
-mjmnmn
+False
+D
+0
+q
