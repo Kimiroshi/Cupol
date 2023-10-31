@@ -235,4 +235,4 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "купол"))
         self.time_label.setText(_translate("MainWindow", "0:00"))
         self.cur_page.setText(_translate("MainWindow", "1"))
-        self.name_label.setText(_translate("MainWindow", "Kupol"))
+        self.name_label.setText(_translate("MainWindow", "Cupol"))

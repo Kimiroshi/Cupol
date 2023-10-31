@@ -59,7 +59,27 @@ class AccountPage(QMainWindow, Ui_AccountWindow):
 
     # Отвечает за выход из аккаунта, октрывая меню регистрации
     def leave_btn(self):
-        subprocess.Popen(['register.py'], shell=True, creationflags=subprocess.SW_HIDE)
+        with open('current_settings.txt', 'r', encoding='utf-8') as f:
+            data = f.readlines()
+            data = [i.strip('\n') for i in data]
+
+        q = open(f'cfgs/{starter.log}{starter.psw}{starter.nam}.txt', 'w')
+        q.close()
+        with open(f'cfgs/{starter.log}{starter.psw}{starter.nam}.txt', '+a', encoding='utf-8') as f:
+            for i in data:
+                f.write(i + '\n')
+
+        q = open(f'current_settings.txt', 'w')
+        q.close()
+        with open('current_settings.txt', '+a', encoding="utf-8") as f:
+            f.write("False" + '\n')
+            f.write('Светлая' + '\n')
+            f.write('Русский' + '\n')
+            f.write('False' + '\n')
+            f.write('zer' + '\n')
+            f.write('zer' + '\n')
+            f.write('zer')
+            subprocess.Popen(['register.py'], shell=True, creationflags=subprocess.SW_HIDE)
         exit()
 
     # Отвечает за отображение времени
