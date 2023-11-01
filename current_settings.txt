@@ -1,7 +1,7 @@
 False
 Светлая
 Русский
-False
-aa
-a
-a
+True
+qwe
+eqw
+qwe

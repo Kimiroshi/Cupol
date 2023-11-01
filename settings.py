@@ -19,6 +19,9 @@ class SettingsPage(QMainWindow, Ui_Settings):
         self.rate_button.clicked.connect(self.rate_btn)
         self.home_button.clicked.connect(self.home_btn)
         self.save_button.clicked.connect(self.save_btn)
+        self.cupol_va_button.clicked.connect(self.cupol_va_btn)
+        self.cupol_active = False
+        self.sub = ''
 
         # Правильное отображение текущей темы и языка
         self.theme_choose.setCurrentText('Темная' if starter.color == 'black' else 'Светлая')
@@ -38,12 +41,21 @@ class SettingsPage(QMainWindow, Ui_Settings):
     # Открывает меню аккаунта
     def account_btn(self):
         subprocess.Popen(['account.py'], shell=True, creationflags=subprocess.SW_HIDE)
+        self.t.cancel()
         exit()
 
     # Открывает главное меню
     def home_btn(self):
         subprocess.Popen(['main.py'], shell=True, creationflags=subprocess.SW_HIDE)
+        self.t.cancel()
         exit()
+
+    def cupol_va_btn(self):
+        self.cupol_active = not self.cupol_active
+        if self.cupol_active:
+            self.sub = subprocess.Popen(['cupol_va.py'], shell=True, creationflags=subprocess.SW_HIDE)
+        else:
+            self.sub.terminate()
 
     def save_btn(self):
         # Очистка файла текущих настроек от предыдущих
@@ -76,6 +88,7 @@ class SettingsPage(QMainWindow, Ui_Settings):
         # Строки для автостарта, он пока не работает
 #        if bool(self.autostart.checkState()):
 #            self.add_to_startup()
+        self.t.cancel()
         exit()
 
     # Строки для автостарта, он пока не работает
@@ -89,7 +102,8 @@ class SettingsPage(QMainWindow, Ui_Settings):
     # Функция для отображения времени
     def time(self):
         self.time_label.setText(dt.now().strftime("%H:%M"))
-        Timer(1, self.time).start()
+        self.t = Timer(1, self.time)
+        self.t.start()
 
 
 if __name__ == "__main__":

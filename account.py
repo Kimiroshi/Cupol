@@ -50,11 +50,13 @@ class AccountPage(QMainWindow, Ui_AccountWindow):
     # Открывает домашнюю страницу
     def home_btn(self):
         subprocess.Popen(['main.py'], shell=True, creationflags=subprocess.SW_HIDE)
+        self.t.cancel()
         exit()
 
     # Открывает настройки
     def settings_btn(self):
         subprocess.Popen(['settings.py'], shell=True, creationflags=subprocess.SW_HIDE)
+        self.t.cancel()
         exit()
 
     # Отвечает за выход из аккаунта, октрывая меню регистрации
@@ -80,12 +82,14 @@ class AccountPage(QMainWindow, Ui_AccountWindow):
             f.write('zer' + '\n')
             f.write('zer')
             subprocess.Popen(['register.py'], shell=True, creationflags=subprocess.SW_HIDE)
+        self.t.cancel()
         exit()
 
     # Отвечает за отображение времени
     def time(self):
         self.time_label.setText(dt.now().strftime("%H:%M"))
-        Timer(1, self.time).start()
+        self.t = Timer(1, self.time)
+        self.t.start()
 
 
 if __name__ == "__main__":

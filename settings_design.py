@@ -122,21 +122,9 @@ class Ui_Settings(object):
         self.rate_label.setFont(font)
         self.rate_label.setStyleSheet("background-color: none")
         self.rate_label.setObjectName("rate_label")
-        self.autostart_label = QtWidgets.QLabel(self.centralwidget)
-        self.autostart_label.setGeometry(QtCore.QRect(189, 358, 151, 41))
         font = QtGui.QFont()
         font.setFamily("Arimo")
         font.setPointSize(14)
-        self.autostart_label.setFont(font)
-        self.autostart_label.setStyleSheet("background-color: none\n"
-"")
-        self.autostart_label.setObjectName("autostart_label")
-        self.autostart = QtWidgets.QCheckBox(self.centralwidget)
-        self.autostart.setGeometry(QtCore.QRect(323, 355, 21, 51))
-        self.autostart.setStyleSheet("background-color: none;")
-        self.autostart.setText("")
-        self.autostart.setIconSize(QtCore.QSize(30, 30))
-        self.autostart.setObjectName("autostart")
         self.save_button = QtWidgets.QPushButton(self.centralwidget)
         self.save_button.setGeometry(QtCore.QRect(70, 480, 231, 61))
         font = QtGui.QFont()
@@ -156,6 +144,24 @@ class Ui_Settings(object):
 
         self.retranslateUi(Settings)
         QtCore.QMetaObject.connectSlotsByName(Settings)
+
+        self.cupol_va_button = QtWidgets.QPushButton(self.centralwidget)
+        self.cupol_va_button.setGeometry(QtCore.QRect(298, 365, 51, 51))
+        self.cupol_va_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.cupol_va_button.setStyleSheet("QPushButton{\n"
+                                       "border: 3px solid #b7b7b7;\n"
+                                       "border-radius: 10px;\n"
+                                       "}\n"
+                                       "QPushButton:hover{\n"
+                                       "background-color: #c8c8c8;\n"
+                                       "}")
+        self.cupol_va_button.setText("")
+        icon44 = QtGui.QIcon()
+        icon44.addPixmap(QtGui.QPixmap("icons/home.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.cupol_va_button.setIcon(icon44)
+        self.cupol_va_button.setIconSize(QtCore.QSize(50, 50))
+        self.cupol_va_button.setObjectName("home_button")
+
         if starter.color == 'black':
             Settings.setStyleSheet(
                 "background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(26, 53, 24, 255), stop:0.663158 rgba(35, 35, 35, 255));;")
@@ -192,6 +198,15 @@ class Ui_Settings(object):
             "QPushButton:hover{\n"
             "background-color: #1E5945;\n"
             "}")
+            self.cupol_va_button.setStyleSheet("QPushButton{\n"
+            "border: 3px solid #20603D;\n"
+            "border-radius: 10px;\n"
+            "background-color: rgba(0, 0, 0, 0);\n"
+            "color: #A5A5A5;\n"
+            "}\n"
+            "QPushButton:hover{\n"
+            "background-color: #1E5945;\n"
+            "}")
             self.time_label.setStyleSheet("background-color: rgba(0,0,0,0);\n"
                                           "color: #A5A5A5;")
             self.rate_label.setStyleSheet("background-color: rgba(0,0,0,0);\n"
@@ -200,8 +215,6 @@ class Ui_Settings(object):
                                           "color: #A5A5A5;")
             self.language_label.setStyleSheet("background-color: rgba(0,0,0,0);\n"
                                           "color: #A5A5A5;")
-            self.autostart_label.setStyleSheet("background-color: rgba(0,0,0,0);\n"
-                                              "color: #A5A5A5;")
             self.theme_choose.setStyleSheet("QComboBox{\n"
                                             "background-color: rgba(0,0,0,0);\n"
                                             "border: 3px solid #20603D;\n"
@@ -238,5 +251,4 @@ class Ui_Settings(object):
         self.language_choose.setItemText(0, _translate("Settings", "Русский"))
         self.language_choose.setItemText(1, _translate("Settings", "Английский"))
         self.rate_label.setText(_translate("Settings", "Оценить"))
-        self.autostart_label.setText(_translate("Settings", "Автозапуск"))
         self.save_button.setText(_translate("Settings", "Сохранить"))

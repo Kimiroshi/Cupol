@@ -29,6 +29,16 @@ class MainPage(QMainWindow, Ui_MainWindow):
             "2": [self.app_10, self.app_11],
         }
 
+        for i in self.pages_list:
+            for j in self.pages[i]:
+                j.clicked.connect(self.opener)
+        self.app_10.move(0, 0)
+        self.app_11.move(0, 0)
+        self.app_10.setVisible(False)
+        self.app_11.setVisible(False)
+
+        self.apps = {self.app_1: 'AntiPlagiarism.py', self.app_2: 'Calculator.py', self.app_3: 'MyNotes.py', self.app_4: 'NimStrikesBack.py', self.app_5: 'Pseudonym.py', self.app_6: 'SimplePlanner.py', self.app_7: 'TicTacToe.py'}
+
         self.left_button.clicked.connect(self.previous_page)
         self.right_button.clicked.connect(self.next_page)
         self.account_button.clicked.connect(self.account_btn)
@@ -75,17 +85,27 @@ class MainPage(QMainWindow, Ui_MainWindow):
     # Открывает аккаунт
     def account_btn(self):
         subprocess.Popen(['account.py'], shell=True, creationflags=subprocess.SW_HIDE)
+        self.t.cancel()
         exit()
 
     # Открывает настройки
     def settings_btn(self):
         subprocess.Popen(['settings.py'], shell=True, creationflags=subprocess.SW_HIDE)
+        self.t.cancel()
         exit()
+
+    def opener(self):
+        try:
+            app = self.apps[self.sender()]
+            subprocess.Popen([app], shell=True, creationflags=subprocess.SW_HIDE)
+        except Exception as ex:
+            print(ex)
 
     # Функция для отображения времени
     def time(self):
         self.time_label.setText(dt.now().strftime("%H:%M"))
-        Timer(1, self.time).start()
+        self.t = Timer(1, self.time)
+        self.t.start()
 
 
 if __name__ == "__main__":
