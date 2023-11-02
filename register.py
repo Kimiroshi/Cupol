@@ -115,7 +115,6 @@ class RegisterPage(QMainWindow, Ui_RegisterPage):
 
         # Запись в БД данных о новом аккаунте, сохранение его cfg в специальной папке и открытие домашней страницы
         elif all((login != '', password != '')) and not res:
-            print(login, password, cfgpath)
             cur.execute(f"""INSERT INTO data(login, password, cfg) 
              VALUES(?, ?, ?)""", (login, password, cfgpath))
             con.commit()
@@ -123,7 +122,7 @@ class RegisterPage(QMainWindow, Ui_RegisterPage):
             os.rename(f'{login}{password}.txt', cfgpath)
             self.go_home()
 
-        # Проверка на пустые поля
+            # Проверка на пустые поля
         else:
             login = self.login_line.text()
             msg = QMessageBox()
