@@ -9,10 +9,8 @@ class Cupol:
         self.auto = False
         self.color = 'white'
         self.language = 'rus'
-        self.log = self.settings[-3]
-        self.psw = self.settings[-2]
-        self.nam = self.settings[-1]
-
+        self.log = self.settings[-2]
+        self.psw = self.settings[-1]
         if self.settings[1] == 'Темная':
             self.color = 'black'
         else:
@@ -34,7 +32,6 @@ class Cupol:
                 f.write('Русский' + '\n')
                 f.write('False' + '\n')
                 f.write('zer' + '\n')
-                f.write('zer' + '\n')
                 f.write('zer')
             subprocess.Popen(['register.py'], shell=True, creationflags=subprocess.SW_HIDE)
 
@@ -52,7 +49,6 @@ class Cupol:
                     f.write('Светлая' + '\n')
                     f.write('Русский' + '\n')
                     f.write('False' + '\n')
-                    f.write('zer' + '\n')
                     f.write('zer' + '\n')
                     f.write('zer')
 

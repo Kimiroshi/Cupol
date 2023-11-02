@@ -16,7 +16,6 @@ class AccountPage(QMainWindow, Ui_AccountWindow):
         self.setupUi(self)
         self.login_line.setText(starter.log)
         self.password_line.setText(starter.psw)
-        self.name_line.setText(starter.nam)
         self.hide_password_button.clicked.connect(self.hide_btn)
         self.home_button.clicked.connect(self.home_btn)
 
@@ -65,9 +64,9 @@ class AccountPage(QMainWindow, Ui_AccountWindow):
             data = f.readlines()
             data = [i.strip('\n') for i in data]
 
-        q = open(f'cfgs/{starter.log}{starter.psw}{starter.nam}.txt', 'w')
+        q = open(f'cfgs/{starter.log}{starter.psw}.txt', 'w')
         q.close()
-        with open(f'cfgs/{starter.log}{starter.psw}{starter.nam}.txt', '+a', encoding='utf-8') as f:
+        with open(f'cfgs/{starter.log}{starter.psw}.txt', '+a', encoding='utf-8') as f:
             for i in data:
                 f.write(i + '\n')
 

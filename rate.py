@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5 import QtCore, QtGui
 from rate_design import Ui_RateWindow
 
+
 class RatePage(QMainWindow, Ui_RateWindow):
     def __init__(self):
         super().__init__()
@@ -21,14 +22,11 @@ class RatePage(QMainWindow, Ui_RateWindow):
         self.stars = [self.star1, self.star2, self.star3, self.star4, self.star5]
 
     def rate_sys(self):
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("icons/user.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         # Получение логина и имени текущего пользователя
         with open('current_settings.txt', 'r', encoding='utf-8') as f:
             data = f.readlines()
             data = [i.strip('\n') for i in data]
-            name = data[-1]
-            login = data[-3]
+            login = data[-2]
 
         # Получение списка уже выбиравших рейтинг
         with open('rating.txt', 'r', encoding='utf-8') as f:
@@ -45,15 +43,15 @@ class RatePage(QMainWindow, Ui_RateWindow):
             self.upd(i)
 
         # Записывает в файл, если этот аккаунт еще не выбирал рейтинг
-        if f'{login}_{name}' not in users:
+        if f'{login}' not in users:
             with open('rating.txt', '+a', encoding='utf-8') as f:
-                f.write(f'{login}_{name}: {self.rating} \n')
+                f.write(f'{login}: {self.rating} \n')
         else:
             # Получаем список всех оценок и заменяет оценку для текущего аккаунт
             with open('rating.txt', 'r', encoding='utf-8') as f:
                 arr = f.readlines()
                 arr = [i.strip('\n').strip(' ') for i in arr]
-                arr[users.index(f'{login}_{name}')] = f'{login}_{name}: {self.rating}'
+                arr[users.index(f'{login}')] = f'{login}: {self.rating}'
 
             # Очищаем файл рейтинга
             q = open('rating.txt', 'w')

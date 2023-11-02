@@ -7,7 +7,7 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtGui import QRegExpValidator
 from PyQt5.QtCore import QRegExp
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
-from register_design import Ui_RegisterPage
+from new_register_design import Ui_RegisterPage
 
 
 class RegisterPage(QMainWindow, Ui_RegisterPage):
@@ -22,16 +22,21 @@ class RegisterPage(QMainWindow, Ui_RegisterPage):
         self.validator1 = QRegExpValidator(self.regex1)
         self.login_line.setValidator(self.validator)
         self.password_line.setValidator(self.validator)
-        self.name_line.setValidator(self.validator1)
 
         self.login_button.clicked.connect(self.login_btn)
         self.register_button.clicked.connect(self.reg_btn)
+        self.remember_me_button.clicked.connect(self.remember_me_btn)
+        self.remember = False
 
-        # Инициализация иконок для кнопки показать/спрятать пароль
+        # Инициализация иконок для кнопки показать/спрятать пароль и чекбокса
         self.icon = QtGui.QIcon()
         self.icon.addPixmap(QtGui.QPixmap("icons/eye.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.cross_icon = QtGui.QIcon()
         self.cross_icon.addPixmap(QtGui.QPixmap("icons/eye-crossed.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.checked = QtGui.QIcon()
+        self.checked.addPixmap(QtGui.QPixmap("icons/checked.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.not_checked = QtGui.QIcon()
+        self.not_checked.addPixmap(QtGui.QPixmap("icons/not_checked.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
 
         # Установка стандартного значения для поля пароля и кнопки
         self.password_line.setEchoMode(QtWidgets.QLineEdit.Password)
@@ -42,38 +47,40 @@ class RegisterPage(QMainWindow, Ui_RegisterPage):
         # Создание БД и таблицы в ней
         con = sqlite3.connect('accounts.db')
         cur = con.cursor()
-        cur.execute("""CREATE TABLE IF NOT EXISTS data(login TEXT, password TEXT, name TEXT, cfg TEXT)""")
+        cur.execute("""CREATE TABLE IF NOT EXISTS data(login TEXT, password TEXT, cfg TEXT)""")
         con.close()
 
     # Кнопка логина
     def login_btn(self):
-        res = self.check_data()
-        login = self.login_line.text()
-        password = self.password_line.text()
-        name = self.name_line.text()
-        # Проверка на ошибку
-        if not res:
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Critical)
-            msg.setText("Ошибка:")
-            msg.setInformativeText('Такого аккаунта не существует или вы не заполнили все поля')
-            msg.setWindowTitle("Error")
-            msg.exec_()
-        # Запись настроек из cfg текущего аккаунт в текущие настройки приложения
-        else:
-            with open(f'cfgs/{login}{password}{name}.txt', 'r', encoding='utf-8') as f:
-                data = f.readlines()
-                data = [i.strip('\n') for i in data]
-            q = open('current_settings.txt', 'w')
-            q.close()
-            with open(f'current_settings.txt', '+a', encoding='utf-8') as f:
-                for n, i in enumerate(data):
-                    if n == 3:
-                        f.write(str(self.remember_box.isChecked()) + '\n')
-                    else:
-                        f.write(i + '\n')
-            #  Открытие домашней странницы
-            self.go_home()
+        try:
+            res = self.check_data()
+            login = self.login_line.text()
+            password = self.password_line.text()
+            # Проверка на ошибку
+            if not res:
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Critical)
+                msg.setText("Ошибка:")
+                msg.setInformativeText('Такого аккаунта не существует или вы не заполнили все поля')
+                msg.setWindowTitle("Error")
+                msg.exec_()
+            # Запись настроек из cfg текущего аккаунт в текущие настройки приложения
+            else:
+                with open(f'cfgs/{login}{password}.txt', 'r', encoding='utf-8') as f:
+                    data = f.readlines()
+                    data = [i.strip('\n') for i in data]
+                q = open('current_settings.txt', 'w')
+                q.close()
+                with open(f'current_settings.txt', '+a', encoding='utf-8') as f:
+                    for n, i in enumerate(data):
+                        if n == 3:
+                            f.write(str(self.remember) + '\n')
+                        else:
+                            f.write(i + '\n')
+                #  Открытие домашней странницы
+                self.go_home()
+        except Exception as ex:
+            print(ex)
 
     # Проверяет есть ли введенные данные в БД
     def check_data(self):
@@ -81,10 +88,9 @@ class RegisterPage(QMainWindow, Ui_RegisterPage):
         cur = con.cursor()
         login = self.login_line.text()
         password = self.password_line.text()
-        name = self.name_line.text()
         res = cur.execute(f"""SELECT * FROM data 
-        WHERE login = ? and password = ? and name = ? and cfg = ?""",
-                          (login, password, name, f'cfgs/{login}{password}{name}.txt')).fetchall()
+        WHERE login = ? and password = ? and cfg = ?""",
+                          (login, password, f'cfgs/{login}{password}.txt')).fetchall()
         con.commit()
         con.close()
         return res
@@ -94,8 +100,7 @@ class RegisterPage(QMainWindow, Ui_RegisterPage):
         res = self.check_data()
         login = self.login_line.text()
         password = self.password_line.text()
-        name = self.name_line.text()
-        cfgpath = f'cfgs/{login}{password}{name}.txt'
+        cfgpath = f'cfgs/{login}{password}.txt'
         con = sqlite3.connect('accounts.db')
         cur = con.cursor()
 
@@ -109,27 +114,25 @@ class RegisterPage(QMainWindow, Ui_RegisterPage):
             msg.exec_()
 
         # Запись в БД данных о новом аккаунте, сохранение его cfg в специальной папке и открытие домашней страницы
-        elif all((login != '', password != '', name != '')) and not res:
-            cur.execute(f"""INSERT INTO data(login, password, name, cfg) 
-             VALUES(?, ?, ?, ?)""", (login, password, name, cfgpath))
+        elif all((login != '', password != '')) and not res:
+            print(login, password, cfgpath)
+            cur.execute(f"""INSERT INTO data(login, password, cfg) 
+             VALUES(?, ?, ?)""", (login, password, cfgpath))
             con.commit()
             self.set_cfg()
-            os.rename(f'{login}{password}{name}.txt', cfgpath)
+            os.rename(f'{login}{password}.txt', cfgpath)
             self.go_home()
 
         # Проверка на пустые поля
         else:
             login = self.login_line.text()
-            password = self.password_line.text()
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Critical)
             msg.setText("Ошибка:")
             if login == '':
                 msg.setInformativeText('Вы не ввели логин!')
-            elif password == '':
-                msg.setInformativeText('Вы не ввели пароль!')
             else:
-                msg.setInformativeText('Вы не ввели имя!')
+                msg.setInformativeText('Вы не ввели пароль!')
             msg.setWindowTitle("Error")
             msg.exec_()
         con.close()
@@ -141,27 +144,24 @@ class RegisterPage(QMainWindow, Ui_RegisterPage):
     def set_cfg(self):
         login = self.login_line.text()
         password = self.password_line.text()
-        name = self.name_line.text()
-        q = open(f'{login}{password}{name}.txt', 'w')
+        q = open(f'{login}{password}.txt', 'w')
         q.close()
-        with open(f'{login}{password}{name}.txt', '+a', encoding='utf-8') as f:
+        with open(f'{login}{password}.txt', '+a', encoding='utf-8') as f:
             f.write('False' + '\n')
             f.write('Светлая' + '\n')
             f.write('Русский' + '\n')
-            f.write(str(self.remember_box.isChecked()) + '\n')
+            f.write(str(self.remember) + '\n')
             f.write(login + '\n')
             f.write(password + '\n')
-            f.write(name + '\n')
         q = open(f'current_settings.txt', 'w')
         q.close()
         with open('current_settings.txt', '+a', encoding='utf-8') as f:
             f.write('False' + '\n')
             f.write('Светлая' + '\n')
             f.write('Русский' + '\n')
-            f.write(str(self.remember_box.isChecked()) + '\n')
+            f.write(str(self.remember) + '\n')
             f.write(login + '\n')
             f.write(password + '\n')
-            f.write(name + '\n')
 
     # Открыть домашнюю страницу
     def go_home(self):
@@ -180,6 +180,15 @@ class RegisterPage(QMainWindow, Ui_RegisterPage):
             self.password_line.setEchoMode(QtWidgets.QLineEdit.Password)
             self.hide_password_button.setIcon(self.icon)
             self.hide_password_button.setIconSize(QtCore.QSize(35, 35))
+
+    def remember_me_btn(self):
+        self.remember = not self.remember
+        if self.remember:
+            self.remember_me_button.setIcon(self.checked)
+            self.remember_me_button.setIconSize(QtCore.QSize(35, 35))
+        else:
+            self.remember_me_button.setIcon(self.not_checked)
+            self.remember_me_button.setIconSize(QtCore.QSize(35, 35))
 
 
 if __name__ == "__main__":

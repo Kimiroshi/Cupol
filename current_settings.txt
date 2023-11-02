@@ -1,7 +1,6 @@
 False
 Светлая
 Русский
-True
-qwe
-eqw
-qwe
+False
+zer
+zer

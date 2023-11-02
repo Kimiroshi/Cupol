@@ -1,7 +1,0 @@
-False
-Светлая
-Русский
-True
-qwerqwew
-qweeqwweq
-qweqweewq
