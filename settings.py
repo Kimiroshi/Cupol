@@ -2,6 +2,8 @@ import subprocess
 import sys
 
 from PyQt5.QtWidgets import QApplication, QMainWindow
+
+import speach
 from cupol import Cupol
 from settings_design import Ui_Settings
 from threading import Timer
@@ -54,8 +56,7 @@ class SettingsPage(QMainWindow, Ui_Settings):
         self.cupol_active = not self.cupol_active
         if self.cupol_active:
             self.sub = subprocess.Popen(['cupol_va.py'], shell=True, creationflags=subprocess.SW_HIDE)
-        else:
-            self.sub.terminate()
+            speach.ready()
 
     def save_btn(self):
         # Очистка файла текущих настроек от предыдущих
