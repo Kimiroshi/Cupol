@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'main_design.ui'
+# Form implementation generated from reading ui file 'dark_main_design.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -15,18 +15,20 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(375, 635)
-        MainWindow.setStyleSheet("background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(218, 218, 218, 255));")
+        MainWindow.setStyleSheet("background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(26, 53, 24, 255), stop:0.663158 rgba(35, 35, 35, 255));")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.account_button = QtWidgets.QPushButton(self.centralwidget)
         self.account_button.setGeometry(QtCore.QRect(8, 10, 51, 51))
         self.account_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.account_button.setStyleSheet("QPushButton{\n"
-"border: 3px solid #b7b7b7;\n"
+"border: 3px solid #20603D;\n"
 "border-radius: 10px;\n"
+"background-color: none;\n"
+"color: gray\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: #c8c8c8;\n"
+"background-color: #1E5945;\n"
 "}")
         self.account_button.setText("")
         icon = QtGui.QIcon()
@@ -38,11 +40,13 @@ class Ui_MainWindow(object):
         self.settings_button.setGeometry(QtCore.QRect(315, 10, 51, 51))
         self.settings_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.settings_button.setStyleSheet("QPushButton{\n"
-"border: 3px solid #b7b7b7;\n"
+"border: 3px solid #20603D;\n"
 "border-radius: 10px;\n"
+"background-color: none;\n"
+"color: gray\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: #c8c8c8;\n"
+"background-color: #1E5945;\n"
 "}")
         self.settings_button.setText("")
         icon1 = QtGui.QIcon()
@@ -56,19 +60,21 @@ class Ui_MainWindow(object):
         font.setFamily("Arimo")
         font.setPointSize(16)
         self.time_label.setFont(font)
-        self.time_label.setStyleSheet("background-color: none")
+        self.time_label.setStyleSheet("background-color: none;\n"
+"color: gray")
         self.time_label.setAlignment(QtCore.Qt.AlignCenter)
         self.time_label.setObjectName("time_label")
         self.app_1 = QtWidgets.QPushButton(self.centralwidget)
         self.app_1.setGeometry(QtCore.QRect(30, 180, 81, 81))
         self.app_1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.app_1.setStyleSheet("QPushButton{\n"
-"border: 3px solid #b7b7b7;\n"
+"border: 3px solid #20603D;\n"
 "border-radius: 10px;\n"
-"background-color: rgba(0,0,0,0)\n"
+"background-color: none;\n"
+"color: gray\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: #c8c8c8;\n"
+"background-color: #1E5945;\n"
 "}")
         self.app_1.setText("")
         icon2 = QtGui.QIcon()
@@ -80,12 +86,13 @@ class Ui_MainWindow(object):
         self.app_7.setGeometry(QtCore.QRect(150, 380, 81, 81))
         self.app_7.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.app_7.setStyleSheet("QPushButton{\n"
-"border: 3px solid #b7b7b7;\n"
+"border: 3px solid #20603D;\n"
 "border-radius: 10px;\n"
-"background-color: rgba(0,0,0,0)\n"
+"background-color: none;\n"
+"color: gray\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: #c8c8c8;\n"
+"background-color: #1E5945;\n"
 "}")
         self.app_7.setText("")
         icon3 = QtGui.QIcon()
@@ -97,12 +104,13 @@ class Ui_MainWindow(object):
         self.app_4.setGeometry(QtCore.QRect(30, 280, 81, 81))
         self.app_4.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.app_4.setStyleSheet("QPushButton{\n"
-"border: 3px solid #b7b7b7;\n"
+"border: 3px solid #20603D;\n"
 "border-radius: 10px;\n"
-"background-color: rgba(0,0,0,0)\n"
+"background-color: none;\n"
+"color: gray\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: #c8c8c8;\n"
+"background-color: #1E5945;\n"
 "}")
         self.app_4.setText("")
         icon4 = QtGui.QIcon()
@@ -114,12 +122,13 @@ class Ui_MainWindow(object):
         self.app_3.setGeometry(QtCore.QRect(270, 180, 81, 81))
         self.app_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.app_3.setStyleSheet("QPushButton{\n"
-"border: 3px solid #b7b7b7;\n"
+"border: 3px solid #20603D;\n"
 "border-radius: 10px;\n"
-"background-color: rgba(0,0,0,0)\n"
+"background-color: none;\n"
+"color: gray\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: #c8c8c8;\n"
+"background-color: #1E5945;\n"
 "}")
         self.app_3.setText("")
         icon5 = QtGui.QIcon()
@@ -131,12 +140,13 @@ class Ui_MainWindow(object):
         self.app_6.setGeometry(QtCore.QRect(270, 280, 81, 81))
         self.app_6.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.app_6.setStyleSheet("QPushButton{\n"
-"border: 3px solid #b7b7b7;\n"
+"border: 3px solid #20603D;\n"
 "border-radius: 10px;\n"
-"background-color: rgba(0,0,0,0)\n"
+"background-color: none;\n"
+"color: gray\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: #c8c8c8;\n"
+"background-color: #1E5945;\n"
 "}")
         self.app_6.setText("")
         icon6 = QtGui.QIcon()
@@ -149,12 +159,13 @@ class Ui_MainWindow(object):
         self.app_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.app_2.setWhatsThis("")
         self.app_2.setStyleSheet("QPushButton{\n"
-"border: 3px solid #b7b7b7;\n"
+"border: 3px solid #20603D;\n"
 "border-radius: 10px;\n"
-"background-color: rgba(0,0,0,0)\n"
+"background-color: none;\n"
+"color: gray\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: #c8c8c8;\n"
+"background-color: #1E5945;\n"
 "}")
         self.app_2.setText("")
         icon7 = QtGui.QIcon()
@@ -166,12 +177,13 @@ class Ui_MainWindow(object):
         self.app_5.setGeometry(QtCore.QRect(150, 280, 81, 81))
         self.app_5.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.app_5.setStyleSheet("QPushButton{\n"
-"border: 3px solid #b7b7b7;\n"
+"border: 3px solid #20603D;\n"
 "border-radius: 10px;\n"
-"background-color: rgba(0,0,0,0)\n"
+"background-color: none;\n"
+"color: gray\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: #c8c8c8;\n"
+"background-color: #1E5945;\n"
 "}")
         self.app_5.setText("")
         self.app_5.setIcon(icon4)
@@ -197,7 +209,8 @@ class Ui_MainWindow(object):
         self.right_button.setObjectName("right_button")
         self.cur_page = QtWidgets.QLabel(self.centralwidget)
         self.cur_page.setGeometry(QtCore.QRect(190, 560, 16, 16))
-        self.cur_page.setStyleSheet("background-color: none")
+        self.cur_page.setStyleSheet("background-color: none;\n"
+"color: gray")
         self.cur_page.setObjectName("cur_page")
         self.namebg_line = QtWidgets.QLineEdit(self.centralwidget)
         self.namebg_line.setEnabled(True)
@@ -209,8 +222,8 @@ class Ui_MainWindow(object):
         self.namebg_line.setCursor(QtGui.QCursor(QtCore.Qt.IBeamCursor))
         self.namebg_line.setStyleSheet("background: rgba(0,0,0,0);\n"
 "border-radius: 10px;\n"
-"border: 3px solid #b7b7b7;\n"
-"")
+"border: 3px solid #20603D;\n"
+"color: white")
         self.namebg_line.setText("")
         self.namebg_line.setMaxLength(32767)
         self.namebg_line.setAlignment(QtCore.Qt.AlignCenter)
@@ -223,7 +236,8 @@ class Ui_MainWindow(object):
         font.setFamily("Arimo")
         font.setPointSize(18)
         self.name_label.setFont(font)
-        self.name_label.setStyleSheet("background-color: none")
+        self.name_label.setStyleSheet("background-color: none;\n"
+"color: gray")
         self.name_label.setAlignment(QtCore.Qt.AlignCenter)
         self.name_label.setObjectName("name_label")
         self.account_button.raise_()

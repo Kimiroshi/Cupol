@@ -11,6 +11,7 @@ class Cupol:
         self.language = 'rus'
         self.log = self.settings[-2]
         self.psw = self.settings[-1]
+        self.auto = self.settings[3]
         if self.settings[1] == 'Темная':
             self.color = 'black'
         else:
@@ -53,5 +54,7 @@ class Cupol:
                     f.write('zer')
 
 
+starter = Cupol()
+
 if __name__ == '__main__':
-    Cupol().start()
+    starter.start()

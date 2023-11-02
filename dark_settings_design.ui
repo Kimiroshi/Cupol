@@ -14,7 +14,7 @@
    <string>Settings</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(218, 218, 218, 255));</string>
+   <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(26, 53, 24, 255), stop:0.663158 rgba(35, 35, 35, 255));</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="time_label">
@@ -33,7 +33,8 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: none</string>
+     <string notr="true">background-color: none;
+color: gray</string>
     </property>
     <property name="text">
      <string>0:00</string>
@@ -56,11 +57,13 @@
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-border: 3px solid #b7b7b7;
+border: 3px solid #20603D;
 border-radius: 10px;
+background-color: none;
+color: gray
 }
 QPushButton:hover{
-background-color: #c8c8c8;
+background-color: #1E5945;
 }</string>
     </property>
     <property name="text">
@@ -91,11 +94,13 @@ background-color: #c8c8c8;
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-border: 3px solid #b7b7b7;
+border: 3px solid #20603D;
 border-radius: 10px;
+background-color: none;
+color: gray
 }
 QPushButton:hover{
-background-color: #c8c8c8;
+background-color: #1E5945;
 }</string>
     </property>
     <property name="text">
@@ -128,7 +133,18 @@ background-color: #c8c8c8;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: none</string>
+     <string notr="true">QComboBox{
+background-color: rgba(0,0,0,0);
+border: 3px solid #20603D;
+border-radius: 10px;
+color: gray;
+}
+QComboBox:hover{
+background-color: rgba(0,0,0,0);
+border: 3px solid #20603D;
+border-radius: 10px;
+color: gray
+}</string>
     </property>
     <item>
      <property name="text">
@@ -157,7 +173,8 @@ background-color: #c8c8c8;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: none</string>
+     <string notr="true">background-color: none;
+color: gray</string>
     </property>
     <property name="locale">
      <locale language="Russian" country="Russia"/>
@@ -182,7 +199,8 @@ background-color: #c8c8c8;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: none</string>
+     <string notr="true">background-color: none;
+color: gray</string>
     </property>
     <property name="text">
      <string>Язык</string>
@@ -204,7 +222,18 @@ background-color: #c8c8c8;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: none</string>
+     <string notr="true">QComboBox{
+background-color: rgba(0,0,0,0);
+border: 3px solid #20603D;
+border-radius: 10px;
+color: gray;
+}
+QComboBox:hover{
+background-color: rgba(0,0,0,0);
+border: 3px solid #20603D;
+border-radius: 10px;
+color: gray
+}</string>
     </property>
     <item>
      <property name="text">
@@ -223,12 +252,13 @@ background-color: #c8c8c8;
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-border: 3px solid #b7b7b7;
+border: 3px solid #20603D;
 border-radius: 10px;
 background-color: none;
+color: gray
 }
 QPushButton:hover{
-background-color: #c8c8c8;
+background-color: #1E5945;
 }</string>
     </property>
     <property name="text">
@@ -261,7 +291,8 @@ background-color: #c8c8c8;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: none</string>
+     <string notr="true">background-color: none;
+color: gray</string>
     </property>
     <property name="text">
      <string>Оценить</string>
@@ -283,8 +314,8 @@ background-color: #c8c8c8;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: none
-</string>
+     <string notr="true">background-color: none;
+color: gray</string>
     </property>
     <property name="text">
      <string>Купол</string>
@@ -307,12 +338,13 @@ background-color: #c8c8c8;
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-border: 3px solid #b7b7b7;
+border: 3px solid #20603D;
 border-radius: 10px;
 background-color: none;
+color: gray
 }
 QPushButton:hover{
-background-color: #c8c8c8;
+background-color: #1E5945;
 }</string>
     </property>
     <property name="text">
@@ -330,12 +362,13 @@ background-color: #c8c8c8;
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-border: 3px solid #b7b7b7;
+border: 3px solid #20603D;
 border-radius: 10px;
 background-color: none;
+color: gray
 }
 QPushButton:hover{
-background-color: #c8c8c8;
+background-color: #1E5945;
 }</string>
     </property>
     <property name="text">

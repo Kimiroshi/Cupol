@@ -1,15 +1,17 @@
 import subprocess
 import sys
-
+import stopit
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
 import speach
-from cupol import Cupol
-from settings_design import Ui_Settings
+from cupol import starter
 from threading import Timer
 from datetime import datetime as dt
 
-starter = Cupol()
+if starter.color == 'black':
+    from dark_settings_design import Ui_Settings
+else:
+    from settings_design import Ui_Settings
 
 
 class SettingsPage(QMainWindow, Ui_Settings):
@@ -22,8 +24,6 @@ class SettingsPage(QMainWindow, Ui_Settings):
         self.home_button.clicked.connect(self.home_btn)
         self.save_button.clicked.connect(self.save_btn)
         self.cupol_va_button.clicked.connect(self.cupol_va_btn)
-        self.cupol_active = False
-        self.sub = ''
 
         # Правильное отображение текущей темы и языка
         self.theme_choose.setCurrentText('Темная' if starter.color == 'black' else 'Светлая')
@@ -53,10 +53,9 @@ class SettingsPage(QMainWindow, Ui_Settings):
         exit()
 
     def cupol_va_btn(self):
-        self.cupol_active = not self.cupol_active
-        if self.cupol_active:
-            self.sub = subprocess.Popen(['cupol_va.py'], shell=True, creationflags=subprocess.SW_HIDE)
-            speach.ready()
+        self.t.cancel()
+        subprocess.Popen(['cupol_va.py'], shell=True, creationflags=subprocess.SW_HIDE)
+        speach.ready()
 
     def save_btn(self):
         # Очистка файла текущих настроек от предыдущих
@@ -68,10 +67,9 @@ class SettingsPage(QMainWindow, Ui_Settings):
             f.write("False" + '\n')
             f.write(self.theme_choose.currentText() + '\n')
             f.write(self.language_choose.currentText() + '\n')
-            f.write(str(self.autostart.checkState()) + '\n')
+            f.write(str(starter.auto) + '\n')
             f.write(starter.log + '\n')
-            f.write(starter.psw + '\n')
-            f.write(starter.nam)
+            f.write(starter.psw)
             subprocess.Popen(['main.py'], shell=True, creationflags=subprocess.SW_HIDE)
 
         # Получение всех текущих настроек
@@ -80,9 +78,9 @@ class SettingsPage(QMainWindow, Ui_Settings):
             data = [i.strip('\n') for i in data]
 
         # Запись их в cfg файл этого профиля
-        q = open(f'cfgs/{starter.log}{starter.psw}{starter.nam}.txt', 'w')
+        q = open(f'cfgs/{starter.log}{starter.psw}.txt', 'w')
         q.close()
-        with open(f'cfgs/{starter.log}{starter.psw}{starter.nam}.txt', '+a', encoding='utf-8') as f:
+        with open(f'cfgs/{starter.log}{starter.psw}.txt', '+a', encoding='utf-8') as f:
             for i in data:
                 f.write(i + '\n')
 

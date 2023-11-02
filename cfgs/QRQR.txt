@@ -1,6 +1,6 @@
 False
-Светлая
+Темная
 Русский
 False
-das
-asdads
+QR
+QR

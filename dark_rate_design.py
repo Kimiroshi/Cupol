@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'rate_design.ui'
+# Form implementation generated from reading ui file 'dark_rate_design.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -15,7 +15,7 @@ class Ui_RateWindow(object):
     def setupUi(self, RateWindow):
         RateWindow.setObjectName("RateWindow")
         RateWindow.resize(561, 190)
-        RateWindow.setStyleSheet("background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(218, 218, 218, 255));")
+        RateWindow.setStyleSheet("background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(26, 53, 24, 255), stop:0.663158 rgba(35, 35, 35, 255));")
         self.centralwidget = QtWidgets.QWidget(RateWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.star1 = QtWidgets.QPushButton(self.centralwidget)
@@ -61,12 +61,13 @@ class Ui_RateWindow(object):
         self.star5.setIconSize(QtCore.QSize(64, 64))
         self.star5.setObjectName("star5")
         self.msg_label = QtWidgets.QLabel(self.centralwidget)
-        self.msg_label.setGeometry(QtCore.QRect(154, 10, 321, 51))
+        self.msg_label.setGeometry(QtCore.QRect(154, 10, 251, 51))
         font = QtGui.QFont()
         font.setFamily("Arimo")
         font.setPointSize(18)
         self.msg_label.setFont(font)
-        self.msg_label.setStyleSheet("background-color: none;")
+        self.msg_label.setStyleSheet("background-color: none;\n"
+"color: gray")
         self.msg_label.setObjectName("msg_label")
         RateWindow.setCentralWidget(self.centralwidget)
 

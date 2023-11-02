@@ -1,9 +1,13 @@
 import sys
-import time
 
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5 import QtCore, QtGui
-from rate_design import Ui_RateWindow
+from cupol import starter
+
+if starter.color == 'black':
+    from dark_rate_design import Ui_RateWindow
+else:
+    from rate_design import Ui_RateWindow
 
 
 class RatePage(QMainWindow, Ui_RateWindow):
@@ -16,13 +20,11 @@ class RatePage(QMainWindow, Ui_RateWindow):
         self.star3.clicked.connect(self.rate_sys)
         self.star4.clicked.connect(self.rate_sys)
         self.star5.clicked.connect(self.rate_sys)
-        self.icon = QtGui.QIcon()
-        self.icon.addPixmap(QtGui.QPixmap("icons/eye.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         # Список всех звезд
         self.stars = [self.star1, self.star2, self.star3, self.star4, self.star5]
 
     def rate_sys(self):
-        # Получение логина и имени текущего пользователя
+        # Получение логина  текущего пользователя
         with open('current_settings.txt', 'r', encoding='utf-8') as f:
             data = f.readlines()
             data = [i.strip('\n') for i in data]
@@ -34,13 +36,11 @@ class RatePage(QMainWindow, Ui_RateWindow):
             users = [i.strip('\n').strip(': 1').strip(': 2').strip(': 3').strip(': 4').strip(': 5') for i in users]
 
         # Цикл снизу не учитывает саму выбранную звезду, поэтому еще + 1
-        self.upd(self.sender())
         self.rating += 1
 
         # Пробегает от начала списка до выбранной звезды, прибавляя рейтинг
         for i in self.stars[self.stars.index(self.star1):self.stars.index(self.sender())]:
             self.rating += 1
-            self.upd(i)
 
         # Записывает в файл, если этот аккаунт еще не выбирал рейтинг
         if f'{login}' not in users:
@@ -62,10 +62,6 @@ class RatePage(QMainWindow, Ui_RateWindow):
                 for i in arr:
                     f.write(i + '\n')
         exit()
-
-    def upd(self, q):
-        self.q.setIcon(self.icon)
-        self.q.setIconSize(QtCore.QSize(64, 64))
 
 
 if __name__ == "__main__":

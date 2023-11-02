@@ -1,13 +1,16 @@
 import sys
 import subprocess
-from cupol import Cupol
+from cupol import starter
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from account_design import Ui_AccountWindow
 from threading import Timer
 from datetime import datetime as dt
 
-starter = Cupol()
+if starter.color == 'black':
+    from dark_account_design import Ui_AccountWindow
+else:
+    from account_design import Ui_AccountWindow
+
 
 
 class AccountPage(QMainWindow, Ui_AccountWindow):
@@ -77,7 +80,6 @@ class AccountPage(QMainWindow, Ui_AccountWindow):
             f.write('Светлая' + '\n')
             f.write('Русский' + '\n')
             f.write('False' + '\n')
-            f.write('zer' + '\n')
             f.write('zer' + '\n')
             f.write('zer')
             subprocess.Popen(['register.py'], shell=True, creationflags=subprocess.SW_HIDE)

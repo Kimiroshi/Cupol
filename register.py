@@ -7,8 +7,12 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtGui import QRegExpValidator
 from PyQt5.QtCore import QRegExp
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
-from new_register_design import Ui_RegisterPage
+from cupol import starter
 
+if starter.color == 'black':
+    from dark_new_register_design import Ui_RegisterPage
+else:
+    from new_register_design import Ui_RegisterPage
 
 class RegisterPage(QMainWindow, Ui_RegisterPage):
     def __init__(self):
@@ -52,35 +56,32 @@ class RegisterPage(QMainWindow, Ui_RegisterPage):
 
     # Кнопка логина
     def login_btn(self):
-        try:
-            res = self.check_data()
-            login = self.login_line.text()
-            password = self.password_line.text()
-            # Проверка на ошибку
-            if not res:
-                msg = QMessageBox()
-                msg.setIcon(QMessageBox.Critical)
-                msg.setText("Ошибка:")
-                msg.setInformativeText('Такого аккаунта не существует или вы не заполнили все поля')
-                msg.setWindowTitle("Error")
-                msg.exec_()
-            # Запись настроек из cfg текущего аккаунт в текущие настройки приложения
-            else:
-                with open(f'cfgs/{login}{password}.txt', 'r', encoding='utf-8') as f:
-                    data = f.readlines()
-                    data = [i.strip('\n') for i in data]
-                q = open('current_settings.txt', 'w')
-                q.close()
-                with open(f'current_settings.txt', '+a', encoding='utf-8') as f:
-                    for n, i in enumerate(data):
-                        if n == 3:
-                            f.write(str(self.remember) + '\n')
-                        else:
-                            f.write(i + '\n')
-                #  Открытие домашней странницы
-                self.go_home()
-        except Exception as ex:
-            print(ex)
+        res = self.check_data()
+        login = self.login_line.text()
+        password = self.password_line.text()
+        # Проверка на ошибку
+        if not res:
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setText("Ошибка:")
+            msg.setInformativeText('Такого аккаунта не существует или вы не заполнили все поля')
+            msg.setWindowTitle("Error")
+            msg.exec_()
+        # Запись настроек из cfg текущего аккаунт в текущие настройки приложения
+        else:
+            with open(f'cfgs/{login}{password}.txt', 'r', encoding='utf-8') as f:
+                data = f.readlines()
+                data = [i.strip('\n') for i in data]
+            q = open('current_settings.txt', 'w')
+            q.close()
+            with open(f'current_settings.txt', '+a', encoding='utf-8') as f:
+                for n, i in enumerate(data):
+                    if n == 3:
+                        f.write(str(self.remember) + '\n')
+                    else:
+                        f.write(i + '\n')
+            #  Открытие домашней странницы
+            self.go_home()
 
     # Проверяет есть ли введенные данные в БД
     def check_data(self):

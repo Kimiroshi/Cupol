@@ -1,6 +1,0 @@
-False
-Светлая
-Русский
-True
-href
-href

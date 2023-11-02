@@ -1,11 +1,9 @@
-import time
-
 import pvporcupine
 from pvrecorder import PvRecorder
 from ear import listen
 import speach
 import subprocess
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 from cupol_va_design import Ui_Cupol
 import sys
 import threading
@@ -45,25 +43,26 @@ class VoiceAssistent(QMainWindow, Ui_Cupol):
             "запусти планировщик",
             "открой планировщик",
         )
+        self.t = threading.Timer(1, self.cupol_va)
+        self.t.start()
 
     def cupol_va(self):
         try:
             recoder.start()
             while True:
-
                 keyword_index = porcupine.process(recoder.read())
                 if keyword_index >= 0:
                     speach.random_greet()
                     ans = ''
                     ans = listen()
                     similars = {}
-
                     for i in self.commands:
-                        similars[i] = self.similar(i, ans['text'])
+                        if isinstance(ans, dict):
+                            similars[i] = self.similar(i, ans['text'])
+                        else:
+                            similars[i] = self.similar(i, ans)
                     ans = max(similars, key=similars.get)
-                    print(ans, similars[ans])
                     if similars[ans] >= 0.5:
-
                         if ans in ('включи калькулятор', 'запусти калькулятор', 'открой калькулятор'):
                             speach.random_ok()
                             subprocess.Popen(['Calculator.py'], shell=True, creationflags=subprocess.SW_HIDE)
@@ -102,11 +101,21 @@ class VoiceAssistent(QMainWindow, Ui_Cupol):
     def similar(self, p1, p2):
         return SequenceMatcher(None, p1, p2).ratio()
 
+    def closeEvent(self, event):
+        reply = QMessageBox.question(
+            self, 'Купол', 'Точно хотите закрыть меня?',
+            QMessageBox.Yes, QMessageBox.No
+        )
+        if reply == QMessageBox.Yes:
+            speach.off()
+            event.accept()
+            raise KeyboardInterrupt
+        else:
+            event.ignore()
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     ex = VoiceAssistent()
     ex.show()
-    t = threading.Thread(target=ex.cupol_va,)
-    t.start()
     sys.exit(app.exec_())
