@@ -1,6 +1,6 @@
 False
 Светлая
 Русский
-False
-STqwqrqw
-qwr
+True
+SteveJobs
+APPLE1234

@@ -12,7 +12,6 @@ else:
     from account_design import Ui_AccountWindow
 
 
-
 class AccountPage(QMainWindow, Ui_AccountWindow):
     def __init__(self):
         super().__init__()
@@ -31,8 +30,9 @@ class AccountPage(QMainWindow, Ui_AccountWindow):
         self.cross_icon.addPixmap(QtGui.QPixmap("icons/eye-crossed.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
 
         self.leave_account_button.clicked.connect(self.leave_btn)
-
         self.settings_button.clicked.connect(self.settings_btn)
+
+        self.t = None
         self.time()
 
     # Функция для кнопки скрыть/показать пароль

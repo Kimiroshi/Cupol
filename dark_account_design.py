@@ -81,7 +81,7 @@ class Ui_AccountWindow(object):
         self.login_line.setStyleSheet("background: #070e0b;\n"
 "                                          border-radius: 10px;\n"
 "                                          border: 3px solid #20603D;\n"
-"                                          color: white")
+"                                          color: gray")
         self.login_line.setText("")
         self.login_line.setMaxLength(32767)
         self.login_line.setReadOnly(True)
@@ -97,7 +97,7 @@ class Ui_AccountWindow(object):
         self.password_line.setStyleSheet("background: #070e0b;\n"
 "                                          border-radius: 10px;\n"
 "                                          border: 3px solid #20603D;\n"
-"                                          color: white")
+"                                          color: gray")
         self.password_line.setText("")
         self.password_line.setEchoMode(QtWidgets.QLineEdit.Normal)
         self.password_line.setReadOnly(True)

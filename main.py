@@ -1,10 +1,11 @@
 import subprocess
 import sys
-from threading import Timer
 
+from threading import Timer
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from datetime import datetime as dt
 from cupol import starter
+
 if starter.color == 'black':
     from dark_main_design import Ui_MainWindow
 else:
@@ -33,10 +34,12 @@ class MainPage(QMainWindow, Ui_MainWindow):
             self.app_6: "SimplePlanner.py",
             self.app_7: "TicTacToe.py",
         }
+        self.app = None
 
         self.account_button.clicked.connect(self.account_btn)
         self.settings_button.clicked.connect(self.settings_btn)
 
+        self.t = None
         self.time()
 
     # Функция для отображения предыдущей страницы
@@ -89,8 +92,8 @@ class MainPage(QMainWindow, Ui_MainWindow):
 
     # Открывает приложения
     def opener(self):
-        app = self.apps[self.sender()]
-        subprocess.Popen([app], shell=True, creationflags=subprocess.SW_HIDE)
+        self.app = self.apps[self.sender()]
+        subprocess.Popen([self.app], shell=True, creationflags=subprocess.SW_HIDE)
 
     # Функция для отображения времени
     def time(self):

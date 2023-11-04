@@ -1,7 +1,6 @@
 import sys
 
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from PyQt5 import QtCore, QtGui
 from cupol import starter
 
 if starter.color == 'black':
@@ -39,7 +38,7 @@ class RatePage(QMainWindow, Ui_RateWindow):
         self.rating += 1
 
         # Пробегает от начала списка до выбранной звезды, прибавляя рейтинг
-        for i in self.stars[self.stars.index(self.star1):self.stars.index(self.sender())]:
+        for _ in self.stars[self.stars.index(self.star1):self.stars.index(self.sender())]:
             self.rating += 1
 
         # Записывает в файл, если этот аккаунт еще не выбирал рейтинг

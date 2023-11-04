@@ -14,6 +14,7 @@ if starter.color == 'black':
 else:
     from new_register_design import Ui_RegisterPage
 
+
 class RegisterPage(QMainWindow, Ui_RegisterPage):
     def __init__(self):
         super().__init__()

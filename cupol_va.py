@@ -1,12 +1,13 @@
-import pvporcupine
-from pvrecorder import PvRecorder
-from ear import listen
-import speach
 import subprocess
-from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
-from cupol_va_design import Ui_Cupol
+import pvporcupine
 import sys
 import threading
+import speach
+
+from pvrecorder import PvRecorder
+from ear import listen
+from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
+from cupol_va_design import Ui_Cupol
 from difflib import SequenceMatcher
 
 

@@ -273,4 +273,4 @@ class Ui_MainWindow(object):
         self.app_2.setToolTip(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:9pt;\">Калькулятор</span></p></body></html>"))
         self.app_5.setToolTip(_translate("MainWindow", "<html><head/><body><p>Псевдоним</p></body></html>"))
         self.cur_page.setText(_translate("MainWindow", "1"))
-        self.name_label.setText(_translate("MainWindow", "Kupol"))
+        self.name_label.setText(_translate("MainWindow", "Cupol"))

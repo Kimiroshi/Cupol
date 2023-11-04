@@ -1,9 +1,8 @@
 import subprocess
 import sys
-import stopit
-from PyQt5.QtWidgets import QApplication, QMainWindow
-
 import speach
+
+from PyQt5.QtWidgets import QApplication, QMainWindow
 from cupol import starter
 from threading import Timer
 from datetime import datetime as dt
@@ -27,7 +26,7 @@ class SettingsPage(QMainWindow, Ui_Settings):
 
         # Правильное отображение текущей темы и языка
         self.theme_choose.setCurrentText('Темная' if starter.color == 'black' else 'Светлая')
-        self.language_choose.setCurrentText('Русский' if starter.language == 'rus' else 'Английский')
+#       self.language_choose.setCurrentText('Русский' if starter.language == 'rus' else 'Английский')
 
         # Строки для автозапуска, он пока не работает
 #        q = open('current_settings.txt', 'r')
@@ -35,6 +34,7 @@ class SettingsPage(QMainWindow, Ui_Settings):
 #        q.close()
 
         self.time()
+        self.t = None
 
     # Открывает меню оценки
     def rate_btn(self):
