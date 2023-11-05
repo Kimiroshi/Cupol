@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Красивый калькулятор</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(218, 218, 218, 255));</string>
+  </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
@@ -791,7 +794,7 @@ background-color: rgb(254, 166, 43);
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup_binary"/>
   <buttongroup name="buttonGroup_digits"/>
+  <buttongroup name="buttonGroup_binary"/>
  </buttongroups>
 </ui>

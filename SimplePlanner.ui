@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>668</width>
-    <height>426</height>
+    <height>402</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <widget class="QCalendarWidget" name="calendarWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>4</x>
       <y>40</y>
-      <width>311</width>
+      <width>351</width>
       <height>271</height>
      </rect>
     </property>
@@ -32,7 +32,7 @@
      <rect>
       <x>10</x>
       <y>320</y>
-      <width>311</width>
+      <width>348</width>
       <height>31</height>
      </rect>
     </property>
@@ -44,7 +44,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: none;
+     <string notr="true">background: rgba(0, 0, 0, 0);
 border-radius: 10px;
 border: 3px solid #b7b7b7;
 </string>
@@ -58,7 +58,7 @@ border: 3px solid #b7b7b7;
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>311</width>
+      <width>348</width>
       <height>22</height>
      </rect>
     </property>
@@ -69,7 +69,7 @@ border: 3px solid #b7b7b7;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: none;
+     <string notr="true">background: rgba(0, 0, 0, 0);
 border-radius: 10px;
 border: 3px solid #b7b7b7;
 </string>
@@ -80,7 +80,7 @@ border: 3px solid #b7b7b7;
      <rect>
       <x>10</x>
       <y>360</y>
-      <width>311</width>
+      <width>348</width>
       <height>31</height>
      </rect>
     </property>
@@ -108,21 +108,20 @@ background-color: #c8c8c8;
    <widget class="QListWidget" name="eventList">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>370</x>
       <y>10</y>
-      <width>311</width>
+      <width>291</width>
       <height>381</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: none;
-border-radius: 5px;
+     <string notr="true">background: rgba(0, 0, 0, 0);
+border-radius: 10px;
 border: 3px solid #b7b7b7;
 </string>
     </property>
    </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

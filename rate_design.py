@@ -75,5 +75,5 @@ class Ui_RateWindow(object):
 
     def retranslateUi(self, RateWindow):
         _translate = QtCore.QCoreApplication.translate
-        RateWindow.setWindowTitle(_translate("RateWindow", "MainWindow"))
+        RateWindow.setWindowTitle(_translate("RateWindow", "Rate"))
         self.msg_label.setText(_translate("RateWindow", "Поставьте оценку"))

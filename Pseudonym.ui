@@ -13,12 +13,15 @@
   <property name="windowTitle">
    <string>Псевдоним</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(218, 218, 218, 255));</string>
+  </property>
   <widget class="QLabel" name="stones_label">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>30</y>
-     <width>231</width>
+     <y>34</y>
+     <width>281</width>
      <height>21</height>
     </rect>
    </property>
@@ -29,6 +32,9 @@
      <bold>true</bold>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(0,0,0,0)</string>
+   </property>
    <property name="text">
     <string>Задать количество камней</string>
    </property>
@@ -36,10 +42,10 @@
   <widget class="QSpinBox" name="stones">
    <property name="geometry">
     <rect>
-     <x>250</x>
+     <x>300</x>
      <y>30</y>
-     <width>121</width>
-     <height>22</height>
+     <width>71</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -50,7 +56,7 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background: none;
+    <string notr="true">background: rgba(0, 0, 0, 0);
 border-radius: 10px;
 border: 3px solid #b7b7b7;
 </string>
@@ -59,9 +65,9 @@ border: 3px solid #b7b7b7;
   <widget class="QPushButton" name="startButton">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>20</y>
-     <width>161</width>
+     <x>380</x>
+     <y>25</y>
+     <width>171</width>
      <height>41</height>
     </rect>
    </property>
@@ -86,35 +92,12 @@ background-color: #c8c8c8;
     <string>Задать</string>
    </property>
   </widget>
-  <widget class="QLCDNumber" name="remainLcd">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>80</y>
-     <width>541</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background: rgba(0, 0, 0, 0);
-border-radius: 10px;
-border: 3px solid #b7b7b7;
-</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="takeInput_label">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>120</y>
-     <width>201</width>
+     <y>111</y>
+     <width>251</width>
      <height>41</height>
     </rect>
    </property>
@@ -125,34 +108,11 @@ border: 3px solid #b7b7b7;
      <bold>true</bold>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(0,0,0,0)</string>
+   </property>
    <property name="text">
     <string>Сколько камней взять?</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="takeInput">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>129</y>
-     <width>331</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background: rgba(0, 0, 0, 0);
-border-radius: 10px;
-border: 3px solid #b7b7b7;
-</string>
-   </property>
-   <property name="text">
-    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="takeButton">
@@ -202,8 +162,8 @@ background-color: #c8c8c8;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background: none;
-border-radius: 5px;
+    <string notr="true">background: rgba(0, 0, 0, 0);
+border-radius: 10px;
 border: 3px solid #b7b7b7;
 </string>
    </property>
@@ -211,10 +171,65 @@ border: 3px solid #b7b7b7;
   <widget class="QLabel" name="resultLabel">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>156</x>
      <y>480</y>
-     <width>201</width>
+     <width>251</width>
      <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: rgba(0, 0, 0, 0);
+border-radius: 10px;
+border: 3px solid #b7b7b7;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="remainLcd">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>76</y>
+     <width>541</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: rgba(0, 0, 0, 0);
+border-radius: 10px;
+border: 3px solid #b7b7b7;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="takeInput">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>119</y>
+     <width>291</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">

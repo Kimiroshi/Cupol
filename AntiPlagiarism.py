@@ -1,6 +1,7 @@
 import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMainWindow
+from difflib import SequenceMatcher
 
 
 class AntiPlagiarism(QMainWindow):
@@ -13,20 +14,11 @@ class AntiPlagiarism(QMainWindow):
         self.checkBtn.clicked.connect(self.check)
 
     def check(self):
-        text1 = list(set(self.text1.toPlainText().split("\n")))
-        text2 = list(set(self.text2.toPlainText().split("\n")))
-        identical_lines = 0
-        various_lines = 0
-        for i in text2:
-            if i not in text1:
-                various_lines += 1
-            else:
-                identical_lines += 1
-        for i in text1:
-            if i not in text2:
-                various_lines += 1
-        result = f"Тексты похожи на {(identical_lines / len(set(text1 + text2))) * 100:.2f}%, "
-        if float(f"{(identical_lines / len(set(text1 + text2))) * 100:.2f}") < self.alert_value.value():
+        text1 = ''.join(self.text1.toPlainText().split("\n")).replace(' ', '')
+        text2 = ''.join(self.text2.toPlainText().split("\n")).replace(' ', '')
+        result_n = SequenceMatcher(None, text1, text2).ratio()
+        result = f"Тексты похожи на {(result_n * 100):.2f}%, "
+        if float(f"{(result_n * 100):.2f}") < self.alert_value.value():
             result += "не плагиат"
         else:
             result += "плагиат"

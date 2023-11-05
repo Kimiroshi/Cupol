@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Телефонная книжка</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(218, 218, 218, 255));</string>
+  </property>
   <widget class="QLabel" name="contactName_label">
    <property name="geometry">
     <rect>
@@ -29,6 +32,9 @@
      <bold>true</bold>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(0,0,0,0)</string>
+   </property>
    <property name="text">
     <string>Имя</string>
    </property>
@@ -38,7 +44,7 @@
     <rect>
      <x>10</x>
      <y>50</y>
-     <width>81</width>
+     <width>101</width>
      <height>31</height>
     </rect>
    </property>
@@ -49,6 +55,9 @@
      <bold>true</bold>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(0,0,0,0)</string>
+   </property>
    <property name="text">
     <string>Телефон</string>
    </property>
@@ -56,17 +65,17 @@
   <widget class="QLineEdit" name="contactName">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>9</y>
+     <x>65</x>
+     <y>12</y>
      <width>113</width>
      <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="styleSheet">
@@ -82,15 +91,15 @@ border: 3px solid #b7b7b7;
   <widget class="QLineEdit" name="contactNumber">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>49</y>
-     <width>113</width>
+     <x>115</x>
+     <y>52</y>
+     <width>191</width>
      <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>10</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>
@@ -110,7 +119,7 @@ border: 3px solid #b7b7b7;
     <rect>
      <x>10</x>
      <y>100</y>
-     <width>101</width>
+     <width>121</width>
      <height>31</height>
     </rect>
    </property>
@@ -152,8 +161,8 @@ background-color: #c8c8c8;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background: none;
-border-radius: 5px;
+    <string notr="true">background: rgba(0, 0, 0, 0);
+border-radius: 10px;
 border: 3px solid #b7b7b7;
 </string>
    </property>

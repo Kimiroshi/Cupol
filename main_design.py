@@ -248,7 +248,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Купол"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Cupol"))
         self.time_label.setWhatsThis(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
         self.time_label.setText(_translate("MainWindow", "0:00"))
         self.app_1.setToolTip(_translate("MainWindow", "<html><head/><body><p>Антиплагиат</p></body></html>"))

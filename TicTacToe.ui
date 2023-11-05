@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Крестики-нолики</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(218, 218, 218, 255));</string>
+  </property>
   <widget class="QRadioButton" name="X_RadioButton">
    <property name="geometry">
     <rect>
