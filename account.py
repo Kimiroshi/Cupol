@@ -1,6 +1,6 @@
 import sys
 import subprocess
-from cupol import starter
+from cupol import starter, AppClosed
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from threading import Timer
@@ -91,6 +91,9 @@ class AccountPage(QMainWindow, Ui_AccountWindow):
         self.time_label.setText(dt.now().strftime("%H:%M"))
         self.t = Timer(1, self.time)
         self.t.start()
+
+    def closeEvent(self, event):
+        raise AppClosed
 
 
 if __name__ == "__main__":

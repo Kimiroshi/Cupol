@@ -7,7 +7,7 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtGui import QRegExpValidator
 from PyQt5.QtCore import QRegExp
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
-from cupol import starter
+from cupol import starter, AppClosed
 
 if starter.color == 'black':
     from dark_new_register_design import Ui_RegisterPage
@@ -190,6 +190,9 @@ class RegisterPage(QMainWindow, Ui_RegisterPage):
         else:
             self.remember_me_button.setIcon(self.not_checked)
             self.remember_me_button.setIconSize(QtCore.QSize(35, 35))
+
+    def closeEvent(self, event):
+        raise AppClosed
 
 
 if __name__ == "__main__":

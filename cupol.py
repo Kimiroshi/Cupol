@@ -1,6 +1,9 @@
 import subprocess
 
 
+class AppClosed(Exception):
+    pass
+
 class Cupol:
     def __init__(self):
         with open('current_settings.txt', 'r', encoding="utf-8") as f:
