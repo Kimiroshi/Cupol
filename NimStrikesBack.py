@@ -2,12 +2,17 @@ import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QWidget
 from random import randint
+from cupol import starter
+if starter.color == "black":
+    interface = "NimStrikesBack_dark.ui"
+else:
+    interface = "NimStrikesBack.ui"
 
 
 class NimStrikesBack(QWidget):
     def __init__(self):
         super().__init__()
-        uic.loadUi('NimStrikesBack.ui', self)
+        uic.loadUi(interface, self)
         self.initUI()
 
     def initUI(self):

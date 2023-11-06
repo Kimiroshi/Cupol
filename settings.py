@@ -1,11 +1,10 @@
 import subprocess
-import sys
 import speach
-
-from PyQt5.QtWidgets import QApplication, QMainWindow
-from cupol import starter, AppClosed
-from datetime import datetime as dt
+import sys
 from threading import Timer
+from datetime import datetime as dt
+from cupol import starter, AppClosed
+from PyQt5.QtWidgets import QApplication, QMainWindow
 
 if starter.color == 'black':
     from dark_settings_design import Ui_Settings
@@ -53,7 +52,6 @@ class SettingsPage(QMainWindow, Ui_Settings):
         exit()
 
     def cupol_va_btn(self):
-        self.t.cancel()
         subprocess.Popen(['cupol_va.py'], shell=True, creationflags=subprocess.SW_HIDE)
         speach.ready()
 

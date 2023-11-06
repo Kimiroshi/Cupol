@@ -1,12 +1,17 @@
 import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QWidget
+from cupol import starter
+if starter.color == "black":
+    interface = "TicTacToe_dark.ui"
+else:
+    interface = "TicTacToe.ui"
 
 
 class TicTacToe(QWidget):
     def __init__(self):
         super().__init__()
-        uic.loadUi('TicTacToe.ui', self)
+        uic.loadUi(interface, self)
         self.initUI()
 
     def initUI(self):

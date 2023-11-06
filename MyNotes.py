@@ -1,15 +1,19 @@
 import sqlite3
 import sys
 import re
-
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QWidget
+from cupol import starter
+if starter.color == "black":
+    interface = "MyNotes_dark.ui"
+else:
+    interface = "MyNotes.ui"
 
 
 class MyNotes(QWidget):
     def __init__(self):
         super().__init__()
-        uic.loadUi("MyNotes.ui", self)
+        uic.loadUi(interface, self)
         self.initUI()
         self.rgx_phone = re.compile("(?:\+?\(?\d{2,3}?\)?\D?)?\d{4}\D?\d{4}")
         con = sqlite3.connect('phones.db')

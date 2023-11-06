@@ -2,12 +2,17 @@ import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from difflib import SequenceMatcher
+from cupol import starter
+if starter.color == "black":
+    interface = "AntiPlagiarism_dark.ui"
+else:
+    interface = "AntiPlagiarism.ui"
 
 
 class AntiPlagiarism(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('AntiPlagiarism.ui', self)
+        uic.loadUi(interface, self)
         self.initUI()
 
     def initUI(self):

@@ -2,12 +2,17 @@ import sys
 import sqlite3
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
+from cupol import starter
+if starter.color == "black":
+    interface = "SimplePlanner_dark.ui"
+else:
+    interface = "SimplePlanner.ui"
 
 
 class SimplePlanner(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi("SimplePlanner.ui", self)
+        uic.loadUi(interface, self)
         self.initUI()
 
         con = sqlite3.connect('tasks.db')
@@ -15,7 +20,7 @@ class SimplePlanner(QMainWindow):
         cur.execute("""CREATE TABLE IF NOT EXISTS plans(date TEXT, plan TEXT)""")
         res = cur.execute("""SELECT * FROM plans""").fetchall()
         for i in res:
-            self.eventList.addItem(f'{i[0]} {i[1]}')
+            self.eventList.addItem(f'{i[0]} - {i[1]}')
 
     def initUI(self):
         self.events = []
@@ -34,7 +39,7 @@ class SimplePlanner(QMainWindow):
                                 self.lineEdit.text()))
             self.update_list()
             date = self.calendarWidget.selectedDate().toString('yyyy-MM-dd')
-            time = self.timeEdit.time().toString('hh-mm-ss')
+            time = self.timeEdit.time().toString('hh:mm:ss')
             task = self.lineEdit.text()
             con = sqlite3.connect('tasks.db')
             cur = con.cursor()
@@ -46,7 +51,7 @@ class SimplePlanner(QMainWindow):
         self.events = list(sorted(self.events))
         con = sqlite3.connect('tasks.db')
         cur = con.cursor()
-        events = [f'{i[0]} {i[1]}' for i in cur.execute("""SELECT * FROM plans""").fetchall()]
+        events = []
         for i in self.events:
             events.append(f"{i[0].toString('yyyy-MM-dd')} {i[1].toString('hh:mm:ss')} - {i[2]}")
         self.eventList.clear()
