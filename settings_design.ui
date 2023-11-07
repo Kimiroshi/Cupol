@@ -211,6 +211,11 @@ background-color: #c8c8c8;
       <string>Русский</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>Английский</string>
+     </property>
+    </item>
    </widget>
    <widget class="QPushButton" name="rate_button">
     <property name="geometry">

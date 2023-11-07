@@ -9,6 +9,15 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from cupol import starter
+
+log = 'Логин' if starter.language == 'rus' else 'Login'
+psw = 'Пароль' if starter.language == 'rus' else 'Password'
+welcome = 'Добро пожаловать в Cupol' if starter.language == 'rus' else 'Welcome to the Cupol'
+regist = 'Зарегестрироваться' if starter.language == 'rus' else 'Register'
+login = 'Войти' if starter.language == 'rus' else 'Login'
+ortext = 'или' if starter.language == 'rus' else 'or'
+remember = 'Запомнить меня' if starter.language == 'rus' else 'Remember me'
 
 
 class Ui_RegisterPage(object):
@@ -120,6 +129,9 @@ class Ui_RegisterPage(object):
         self.login_button.setObjectName("login_button")
         self.or_label = QtWidgets.QLabel(self.centralwidget)
         self.or_label.setGeometry(QtCore.QRect(170, 469, 41, 31))
+        if starter.language == 'eng':
+            self.or_label.move(177, 469)
+            self.welcome_label.move(70, 58)
         font = QtGui.QFont()
         font.setPointSize(13)
         self.or_label.setFont(font)
@@ -166,10 +178,10 @@ class Ui_RegisterPage(object):
     def retranslateUi(self, RegisterPage):
         _translate = QtCore.QCoreApplication.translate
         RegisterPage.setWindowTitle(_translate("RegisterPage", "Register"))
-        self.login_line.setPlaceholderText(_translate("RegisterPage", "Логин"))
-        self.password_line.setPlaceholderText(_translate("RegisterPage", "Пароль"))
-        self.welcome_label.setText(_translate("RegisterPage", "Добро пожаловать в Cupol"))
-        self.register_button.setText(_translate("RegisterPage", "Зарегестрироваться"))
-        self.login_button.setText(_translate("RegisterPage", "Войти"))
-        self.or_label.setText(_translate("RegisterPage", "или"))
-        self.remember_me_label.setPlaceholderText(_translate("RegisterPage", "Запомнить меня"))
+        self.login_line.setPlaceholderText(_translate("RegisterPage", f"{log}"))
+        self.password_line.setPlaceholderText(_translate("RegisterPage", f"{psw}"))
+        self.welcome_label.setText(_translate("RegisterPage", f"{welcome}"))
+        self.register_button.setText(_translate("RegisterPage", f"{regist}"))
+        self.login_button.setText(_translate("RegisterPage", f"{login}"))
+        self.or_label.setText(_translate("RegisterPage", f"{ortext}"))
+        self.remember_me_label.setPlaceholderText(_translate("RegisterPage", f"{remember}"))

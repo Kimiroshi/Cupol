@@ -9,6 +9,13 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from cupol import starter
+
+log = 'Логин' if starter.language == 'rus' else 'Login'
+psw = 'Пароль' if starter.language == 'rus' else 'Password'
+leave = 'Выйти из аккаунта' if starter.language == 'rus' else 'Log out'
+login = 'Логин:' if starter.language == 'rus' else 'Login:'
+password = 'Пароль:' if starter.language == 'rus' else 'Password:'
 
 
 class Ui_AccountWindow(object):
@@ -163,8 +170,8 @@ class Ui_AccountWindow(object):
         _translate = QtCore.QCoreApplication.translate
         AccountWindow.setWindowTitle(_translate("AccountWindow", "Account"))
         self.time_label.setText(_translate("AccountWindow", "0:00"))
-        self.login_line.setPlaceholderText(_translate("AccountWindow", "Логин"))
-        self.password_line.setPlaceholderText(_translate("AccountWindow", "Пароль"))
-        self.leave_account_button.setText(_translate("AccountWindow", "Выйти из аккаунта"))
-        self.login_label.setText(_translate("AccountWindow", "Логин:"))
-        self.password_name.setText(_translate("AccountWindow", "Пароль:"))
+        self.login_line.setPlaceholderText(_translate("AccountWindow", f"{log}"))
+        self.password_line.setPlaceholderText(_translate("AccountWindow", f"{psw}"))
+        self.leave_account_button.setText(_translate("AccountWindow", f"{leave}"))
+        self.login_label.setText(_translate("AccountWindow", f"{login}"))
+        self.password_name.setText(_translate("AccountWindow", f"{password}"))

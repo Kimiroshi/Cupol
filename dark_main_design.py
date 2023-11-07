@@ -9,6 +9,15 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from cupol import starter
+
+anti = 'Антиплагиат' if starter.language == 'rus' else 'Antiplagiarism'
+ttt = 'Крестики-нолики' if starter.language == 'rus' else 'Tic-Tac-Toe'
+nim = 'Ним' if starter.language == 'rus' else 'Nim'
+notes = 'Записная книжка' if starter.language == 'rus' else 'Phone book'
+planner = 'Планировщик' if starter.language == 'rus' else 'Planner'
+calc = 'Калькулятор' if starter.language == 'rus' else 'Calculator'
+pseud = 'Псевдоним' if starter.language == 'rus' else 'Pseudonym'
 
 
 class Ui_MainWindow(object):
@@ -262,15 +271,16 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Купол"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Cupol"))
         self.time_label.setWhatsThis(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
         self.time_label.setText(_translate("MainWindow", "0:00"))
-        self.app_1.setToolTip(_translate("MainWindow", "<html><head/><body><p>Антиплагиат</p></body></html>"))
-        self.app_7.setToolTip(_translate("MainWindow", "<html><head/><body><p>Крестики-нолики</p></body></html>"))
-        self.app_4.setToolTip(_translate("MainWindow", "<html><head/><body><p>Ним</p></body></html>"))
-        self.app_3.setToolTip(_translate("MainWindow", "<html><head/><body><p>Записная книжка</p></body></html>"))
-        self.app_6.setToolTip(_translate("MainWindow", "<html><head/><body><p>Планировщик</p></body></html>"))
-        self.app_2.setToolTip(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:9pt;\">Калькулятор</span></p></body></html>"))
-        self.app_5.setToolTip(_translate("MainWindow", "<html><head/><body><p>Псевдоним</p></body></html>"))
+        self.app_1.setToolTip(_translate("MainWindow", f"<html><head/><body><p>{anti}</p></body></html>"))
+        self.app_7.setToolTip(_translate("MainWindow", f"<html><head/><body><p>{ttt}</p></body></html>"))
+        self.app_4.setToolTip(_translate("MainWindow", f"<html><head/><body><p>{nim}</p></body></html>"))
+        self.app_3.setToolTip(_translate("MainWindow", f"<html><head/><body><p>{notes}</p></body></html>"))
+        self.app_6.setToolTip(_translate("MainWindow", f"<html><head/><body><p>{planner}</p></body></html>"))
+        self.app_2.setToolTip(_translate("MainWindow", f"<html><head/><body><p><span style=\" font-size:9pt;\">{calc}</span></p></body></html>"))
+        self.app_5.setToolTip(_translate("MainWindow", f"<html><head/><body><p>{pseud}</p></body></html>"))
         self.cur_page.setText(_translate("MainWindow", "1"))
         self.name_label.setText(_translate("MainWindow", "Cupol"))
+

@@ -9,6 +9,17 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from cupol import starter
+
+light = 'Светлая' if starter.language == 'rus' else 'Light'
+dark = 'Темная' if starter.language == 'rus' else 'Dark'
+theme = 'Тема' if starter.language == 'rus' else 'Theme'
+language = 'Язык' if starter.language == 'rus' else 'Language'
+rus = 'Русский' if starter.language == 'rus' else 'Russian'
+eng = 'Английский' if starter.language == 'rus' else 'English'
+rate = 'Оценить' if starter.language == 'rus' else 'Rate'
+cupol = 'Купол' if starter.language == 'rus' else 'Cupol'
+save = 'Сохранить' if starter.language == 'rus' else 'Save'
 
 
 class Ui_Settings(object):
@@ -124,6 +135,7 @@ class Ui_Settings(object):
 "}")
         self.language_choose.setObjectName("language_choose")
         self.language_choose.addItem("")
+        self.language_choose.addItem("")
         self.rate_button = QtWidgets.QPushButton(self.centralwidget)
         self.rate_button.setGeometry(QtCore.QRect(298, 285, 51, 51))
         self.rate_button.setStyleSheet("QPushButton{\n"
@@ -150,6 +162,9 @@ class Ui_Settings(object):
         self.rate_label.setStyleSheet("background-color: none;\n"
 "color: gray")
         self.rate_label.setObjectName("rate_label")
+        if starter.language == 'eng':
+            self.language_label.setGeometry(10, 215, 101, 31)
+            self.rate_label.setGeometry(QtCore.QRect(227, 294, 48, 31))
         self.cupol_va_label = QtWidgets.QLabel(self.centralwidget)
         self.cupol_va_label.setGeometry(QtCore.QRect(217, 365, 71, 41))
         font = QtGui.QFont()
@@ -201,11 +216,12 @@ class Ui_Settings(object):
         _translate = QtCore.QCoreApplication.translate
         Settings.setWindowTitle(_translate("Settings", "Settings"))
         self.time_label.setText(_translate("Settings", "0:00"))
-        self.theme_choose.setItemText(0, _translate("Settings", "Светлая"))
-        self.theme_choose.setItemText(1, _translate("Settings", "Темная"))
-        self.theme_label.setText(_translate("Settings", "Тема"))
-        self.language_label.setText(_translate("Settings", "Язык"))
-        self.language_choose.setItemText(0, _translate("Settings", "Русский"))
-        self.rate_label.setText(_translate("Settings", "Оценить"))
-        self.cupol_va_label.setText(_translate("Settings", "Купол"))
-        self.save_button.setText(_translate("Settings", "Сохранить"))
+        self.theme_choose.setItemText(0, _translate("Settings", f"{light}"))
+        self.theme_choose.setItemText(1, _translate("Settings", f"{dark}"))
+        self.theme_label.setText(_translate("Settings", f"{theme}"))
+        self.language_label.setText(_translate("Settings", f"{language}"))
+        self.language_choose.setItemText(0, _translate("Settings", f"{rus}"))
+        self.language_choose.setItemText(1, _translate("Settings", f"{eng}"))
+        self.rate_label.setText(_translate("Settings", f"{rate}"))
+        self.cupol_va_label.setText(_translate("Settings", f"{cupol}"))
+        self.save_button.setText(_translate("Settings", f"{save}"))

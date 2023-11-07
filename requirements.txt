@@ -4,6 +4,8 @@ charset-normalizer==3.3.2
 click==8.1.7
 colorama==0.4.6
 idna==3.4
+phonenumbers==8.13.24
+Pillow==10.1.0
 pvporcupine==3.0.0
 pvrecorder==1.2.1
 PyAudio==0.2.13

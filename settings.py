@@ -24,8 +24,12 @@ class SettingsPage(QMainWindow, Ui_Settings):
         self.cupol_va_button.clicked.connect(self.cupol_va_btn)
 
         # Правильное отображение текущей темы и языка
-        self.theme_choose.setCurrentText('Темная' if starter.color == 'black' else 'Светлая')
-#       self.language_choose.setCurrentText('Русский' if starter.language == 'rus' else 'Английский')
+        if starter.language == 'rus':
+            self.theme_choose.setCurrentText('Темная' if starter.color == 'black' else 'Светлая')
+            self.language_choose.setCurrentText('Русский')
+        else:
+            self.theme_choose.setCurrentText('Dark' if starter.color == 'black' else 'Light')
+            self.language_choose.setCurrentText('English')
 
         # Строки для автозапуска, он пока не работает
 #        q = open('current_settings.txt', 'r')
@@ -63,8 +67,13 @@ class SettingsPage(QMainWindow, Ui_Settings):
         # Запись новых данных и открытие домашней страницы
         with open('current_settings.txt', '+a', encoding="utf-8") as f:
             f.write("False" + '\n')
-            f.write(self.theme_choose.currentText() + '\n')
-            f.write(self.language_choose.currentText() + '\n')
+            if starter.language == 'eng':
+                theme = 'Темная' if self.theme_choose.currentText() == 'Dark' else 'Светлая'
+                language = 'Русский' if self.language_choose.currentText() == 'Russian' else 'Английский'
+            else:
+                theme, language = self.theme_choose.currentText(), self.language_choose.currentText()
+            f.write(theme + '\n')
+            f.write(language + '\n')
             f.write(str(starter.auto) + '\n')
             f.write(starter.log + '\n')
             f.write(starter.psw)
