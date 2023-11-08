@@ -3,16 +3,17 @@ from math import factorial
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QWidget
 from cupol import starter
-if starter.color == "black":
-    interface = "calc_dark.ui"
+
+if starter.color == 'black':
+    from calc_dark import Ui_Form
 else:
-    interface = "calc.ui"
+    from calc_design import Ui_Form
 
 
-class Calculator(QWidget):
+class Calculator(QWidget, Ui_Form):
     def __init__(self):
         super().__init__()
-        uic.loadUi(interface, self)
+        self.setupUi(self)
         self.initUI()
 
     def initUI(self):

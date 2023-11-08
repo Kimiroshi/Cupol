@@ -32,9 +32,9 @@ class SettingsPage(QMainWindow, Ui_Settings):
             self.language_choose.setCurrentText('English')
 
         # Строки для автозапуска, он пока не работает
-#        q = open('current_settings.txt', 'r')
-#        self.autostart.setChecked(bool(q.readlines()[-1]))
-#        q.close()
+        #        q = open('current_settings.txt', 'r')
+        #        self.autostart.setChecked(bool(q.readlines()[-1]))
+        #        q.close()
 
         self.time()
         self.t = None
@@ -92,18 +92,18 @@ class SettingsPage(QMainWindow, Ui_Settings):
                 f.write(i + '\n')
 
         # Строки для автостарта, он пока не работает
-#        if bool(self.autostart.checkState()):
-#            self.add_to_startup()
+        #        if bool(self.autostart.checkState()):
+        #            self.add_to_startup()
         self.t.cancel()
         exit()
 
     # Строки для автостарта, он пока не работает
-#    def add_to_startup(self):
-#        user = getpass.getuser()
-#        path = 'C:\\Users\\%s\\PycharmProjects\\pythonProject1\\cupol.py' % user
-#        bat_path = r'C:\Users\%s\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup' % user
-#        with open(bat_path + '\\' + 'open.bat', 'w+') as f:
-#            f.write(r'start "cupol.py" %s' % path)
+    #    def add_to_startup(self):
+    #        user = getpass.getuser()
+    #        path = 'C:\\Users\\%s\\PycharmProjects\\pythonProject1\\cupol.py' % user
+    #        bat_path = r'C:\Users\%s\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup' % user
+    #        with open(bat_path + '\\' + 'open.bat', 'w+') as f:
+    #            f.write(r'start "cupol.py" %s' % path)
 
     # Функция для отображения времени
     def time(self):

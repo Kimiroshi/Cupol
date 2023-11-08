@@ -2,16 +2,17 @@ import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QWidget
 from cupol import starter
-if starter.color == "black":
-    interface = "TicTacToe_dark.ui"
+
+if starter.color == 'black':
+    from TicTacToe_dark import Ui_Form
 else:
-    interface = "TicTacToe.ui"
+    from TicTacToe_white import Ui_Form
 
 
-class TicTacToe(QWidget):
+class TicTacToe(QWidget, Ui_Form):
     def __init__(self):
         super().__init__()
-        uic.loadUi(interface, self)
+        self.setupUi(self)
         self.initUI()
 
     def initUI(self):
@@ -38,6 +39,7 @@ class TicTacToe(QWidget):
                 self.button_grid[i][n].clicked.connect(self.new_step)
 
         self.new_game_button.clicked.connect(self.new_game)
+
     def new_step(self):
         if self.sender().text() == "":
             if (self.selected_symbol == "X" and self.step_number == 0) or (self.selected_symbol == "X" and
@@ -83,6 +85,7 @@ class TicTacToe(QWidget):
         if s:
             self.selected_symbol = self.sender().text()
         self.new_game()
+
     def new_game(self):
         self.symbols = [["", "", ""], ["", "", ""], ["", "", ""]]
         for i in range(len(self.button_grid)):

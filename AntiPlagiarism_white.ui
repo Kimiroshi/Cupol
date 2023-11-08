@@ -51,6 +51,7 @@
     </property>
     <property name="font">
      <font>
+      <pointsize>8</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -74,8 +75,8 @@ background-color: #c8c8c8;
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>221</width>
-      <height>21</height>
+      <width>224</width>
+      <height>23</height>
      </rect>
     </property>
     <property name="font">

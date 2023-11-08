@@ -4,16 +4,17 @@ import re
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QWidget
 from cupol import starter
-if starter.color == "black":
-    interface = "MyNotes_dark.ui"
+
+if starter.color == 'black':
+    from MyNotes_dark import Ui_Form
 else:
-    interface = "MyNotes.ui"
+    from MyNotes_white import Ui_Form
 
 
-class MyNotes(QWidget):
+class MyNotes(QWidget, Ui_Form):
     def __init__(self):
         super().__init__()
-        uic.loadUi(interface, self)
+        self.setupUi(self)
         self.initUI()
         self.rgx_phone = re.compile("(?:\+?\(?\d{2,3}?\)?\D?)?\d{4}\D?\d{4}")
         con = sqlite3.connect('phones.db')

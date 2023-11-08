@@ -3,16 +3,17 @@ import sqlite3
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 from cupol import starter
-if starter.color == "black":
-    interface = "SimplePlanner_dark.ui"
+
+if starter.color == 'black':
+    from SimplePlanner_dark import Ui_MainWindow
 else:
-    interface = "SimplePlanner.ui"
+    from SimplePlanner_white import Ui_MainWindow
 
 
-class SimplePlanner(QMainWindow):
+class SimplePlanner(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi(interface, self)
+        self.setupUi(self)
         self.initUI()
 
         con = sqlite3.connect('tasks.db')

@@ -121,10 +121,10 @@ color: #b7b7b7;
     </property>
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>50</y>
-      <width>331</width>
-      <height>251</height>
+      <x>4</x>
+      <y>40</y>
+      <width>351</width>
+      <height>271</height>
      </rect>
     </property>
     <property name="mouseTracking">

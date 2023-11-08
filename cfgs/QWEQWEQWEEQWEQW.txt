@@ -1,6 +1,6 @@
 False
-Светлая
-Русский
+Темная
+Английский
 True
 QWEQW
 EQWEEQWEQW

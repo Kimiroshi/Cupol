@@ -21,7 +21,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>47</width>
+     <width>66</width>
      <height>31</height>
     </rect>
    </property>
@@ -67,7 +67,7 @@ color: #b7b7b7</string>
   <widget class="QLineEdit" name="contactName">
    <property name="geometry">
     <rect>
-     <x>65</x>
+     <x>80</x>
      <y>12</y>
      <width>113</width>
      <height>31</height>

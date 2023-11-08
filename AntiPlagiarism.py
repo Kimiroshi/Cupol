@@ -3,19 +3,17 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from difflib import SequenceMatcher
 from cupol import starter
+
 if starter.color == "black":
-    interface = "AntiPlagiarism_dark.ui"
+    from AntiPlagiarism_dark import Ui_MainWindow
 else:
-    interface = "AntiPlagiarism.ui"
+    from AntiPlagiarism_white import Ui_MainWindow
 
 
-class AntiPlagiarism(QMainWindow):
+class AntiPlagiarism(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi(interface, self)
-        self.initUI()
-
-    def initUI(self):
+        self.setupUi(self)
         self.checkBtn.clicked.connect(self.check)
 
     def check(self):

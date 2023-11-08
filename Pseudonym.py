@@ -4,16 +4,17 @@ from PyQt5.QtCore import QRegExp
 from PyQt5.QtGui import QRegExpValidator
 from PyQt5.QtWidgets import QApplication, QWidget, QMessageBox
 from cupol import starter
-if starter.color == "black":
-    interface = "Pseudonym_dark.ui"
+
+if starter.color == 'black':
+    from Pseudonym_dark import Ui_Pseudonym
 else:
-    interface = "Pseudonym.ui"
+    from Pseudonym_white import Ui_Pseudonym
 
 
-class Pseudonym(QWidget):
+class Pseudonym(QWidget, Ui_Pseudonym):
     def __init__(self):
         super().__init__()
-        uic.loadUi(interface, self)
+        self.setupUi(self)
         self.initUI()
 
         self.regex = QRegExp("^[0-9]+$")

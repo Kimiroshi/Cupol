@@ -19,7 +19,8 @@ class Ui_LoginPage(object):
         font.setBold(False)
         font.setWeight(50)
         LoginPage.setFont(font)
-        LoginPage.setStyleSheet("background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(218, 218, 218, 255));")
+        LoginPage.setStyleSheet(
+            "background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(218, 218, 218, 255));")
         self.centralwidget = QtWidgets.QWidget(LoginPage)
         self.centralwidget.setObjectName("centralwidget")
         self.welcome_label = QtWidgets.QLabel(self.centralwidget)
@@ -39,8 +40,8 @@ class Ui_LoginPage(object):
         self.login_line.setFont(font)
         self.login_line.setCursor(QtGui.QCursor(QtCore.Qt.IBeamCursor))
         self.login_line.setStyleSheet("background: rgba(239,237,237,1);\n"
-"border-radius: 10px;\n"
-"border: 3px solid #b7b7b7;")
+                                      "border-radius: 10px;\n"
+                                      "border: 3px solid #b7b7b7;")
         self.login_line.setInputMethodHints(QtCore.Qt.ImhNone)
         self.login_line.setInputMask("")
         self.login_line.setText("")
@@ -56,9 +57,9 @@ class Ui_LoginPage(object):
         self.password_line.setFont(font)
         self.password_line.setAutoFillBackground(False)
         self.password_line.setStyleSheet("background: rgba(239,237,237,1);\n"
-"border-radius: 10px;\n"
-"border: 3px solid #b7b7b7;\n"
-"")
+                                         "border-radius: 10px;\n"
+                                         "border: 3px solid #b7b7b7;\n"
+                                         "")
         self.password_line.setText("")
         self.password_line.setEchoMode(QtWidgets.QLineEdit.Normal)
         self.password_line.setReadOnly(False)
@@ -67,12 +68,12 @@ class Ui_LoginPage(object):
         self.hide_password_button.setGeometry(QtCore.QRect(288, 248, 41, 40))
         self.hide_password_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.hide_password_button.setStyleSheet("QPushButton{\n"
-"border: 3px solid #b7b7b7;\n"
-"border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color: #c8c8c8;\n"
-"}")
+                                                "border: 3px solid #b7b7b7;\n"
+                                                "border-radius: 10px;\n"
+                                                "}\n"
+                                                "QPushButton:hover{\n"
+                                                "background-color: #c8c8c8;\n"
+                                                "}")
         self.hide_password_button.setText("")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("icons/eye.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -87,13 +88,13 @@ class Ui_LoginPage(object):
         self.login_button.setFont(font)
         self.login_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.login_button.setStyleSheet("QPushButton{\n"
-"border: 3px solid #b7b7b7;\n"
-"border-radius: 10px;\n"
-"background-color: none;\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color: #c8c8c8;\n"
-"}")
+                                        "border: 3px solid #b7b7b7;\n"
+                                        "border-radius: 10px;\n"
+                                        "background-color: none;\n"
+                                        "}\n"
+                                        "QPushButton:hover{\n"
+                                        "background-color: #c8c8c8;\n"
+                                        "}")
         self.login_button.setObjectName("login_button")
         LoginPage.setCentralWidget(self.centralwidget)
 

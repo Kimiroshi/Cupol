@@ -22,12 +22,12 @@ cupol = 'Купол' if starter.language == 'rus' else 'Cupol'
 save = 'Сохранить' if starter.language == 'rus' else 'Save'
 
 
-
 class Ui_Settings(object):
     def setupUi(self, Settings):
         Settings.setObjectName("Settings")
         Settings.resize(375, 635)
-        Settings.setStyleSheet("background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(218, 218, 218, 255));")
+        Settings.setStyleSheet(
+            "background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(218, 218, 218, 255));")
         self.centralwidget = QtWidgets.QWidget(Settings)
         self.centralwidget.setObjectName("centralwidget")
         self.time_label = QtWidgets.QLabel(self.centralwidget)
@@ -43,12 +43,12 @@ class Ui_Settings(object):
         self.account_button.setGeometry(QtCore.QRect(8, 10, 51, 51))
         self.account_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.account_button.setStyleSheet("QPushButton{\n"
-"border: 3px solid #b7b7b7;\n"
-"border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color: #c8c8c8;\n"
-"}")
+                                          "border: 3px solid #b7b7b7;\n"
+                                          "border-radius: 10px;\n"
+                                          "}\n"
+                                          "QPushButton:hover{\n"
+                                          "background-color: #c8c8c8;\n"
+                                          "}")
         self.account_button.setText("")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("icons/user.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -59,12 +59,12 @@ class Ui_Settings(object):
         self.home_button.setGeometry(QtCore.QRect(315, 10, 51, 51))
         self.home_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.home_button.setStyleSheet("QPushButton{\n"
-"border: 3px solid #b7b7b7;\n"
-"border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color: #c8c8c8;\n"
-"}")
+                                       "border: 3px solid #b7b7b7;\n"
+                                       "border-radius: 10px;\n"
+                                       "}\n"
+                                       "QPushButton:hover{\n"
+                                       "background-color: #c8c8c8;\n"
+                                       "}")
         self.home_button.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("icons/home.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -111,13 +111,13 @@ class Ui_Settings(object):
         self.rate_button = QtWidgets.QPushButton(self.centralwidget)
         self.rate_button.setGeometry(QtCore.QRect(298, 285, 51, 51))
         self.rate_button.setStyleSheet("QPushButton{\n"
-"border: 3px solid #b7b7b7;\n"
-"border-radius: 10px;\n"
-"background-color: none;\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color: #c8c8c8;\n"
-"}")
+                                       "border: 3px solid #b7b7b7;\n"
+                                       "border-radius: 10px;\n"
+                                       "background-color: none;\n"
+                                       "}\n"
+                                       "QPushButton:hover{\n"
+                                       "background-color: #c8c8c8;\n"
+                                       "}")
         self.rate_button.setText("")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("icons/star.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -142,7 +142,7 @@ class Ui_Settings(object):
         font.setPointSize(14)
         self.cupol_va_label.setFont(font)
         self.cupol_va_label.setStyleSheet("background-color: none\n"
-"")
+                                          "")
         self.cupol_va_label.setObjectName("cupol_va_label")
         self.save_button = QtWidgets.QPushButton(self.centralwidget)
         self.save_button.setGeometry(QtCore.QRect(70, 480, 231, 61))
@@ -151,24 +151,24 @@ class Ui_Settings(object):
         font.setPointSize(20)
         self.save_button.setFont(font)
         self.save_button.setStyleSheet("QPushButton{\n"
-"border: 3px solid #b7b7b7;\n"
-"border-radius: 10px;\n"
-"background-color: none;\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color: #c8c8c8;\n"
-"}")
+                                       "border: 3px solid #b7b7b7;\n"
+                                       "border-radius: 10px;\n"
+                                       "background-color: none;\n"
+                                       "}\n"
+                                       "QPushButton:hover{\n"
+                                       "background-color: #c8c8c8;\n"
+                                       "}")
         self.save_button.setObjectName("save_button")
         self.cupol_va_button = QtWidgets.QPushButton(self.centralwidget)
         self.cupol_va_button.setGeometry(QtCore.QRect(298, 360, 51, 51))
         self.cupol_va_button.setStyleSheet("QPushButton{\n"
-"border: 3px solid #b7b7b7;\n"
-"border-radius: 10px;\n"
-"background-color: none;\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color: #c8c8c8;\n"
-"}")
+                                           "border: 3px solid #b7b7b7;\n"
+                                           "border-radius: 10px;\n"
+                                           "background-color: none;\n"
+                                           "}\n"
+                                           "QPushButton:hover{\n"
+                                           "background-color: #c8c8c8;\n"
+                                           "}")
         self.cupol_va_button.setText("")
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap("icons/gray_mic.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
