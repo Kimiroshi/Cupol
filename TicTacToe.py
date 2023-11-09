@@ -28,12 +28,12 @@ class TicTacToe(QWidget, Ui_Form):
         self.button_grid[0].append(self.btn_1)
         self.button_grid[0].append(self.btn_2)
         self.button_grid[0].append(self.btn_3)
-        self.button_grid[1].append(self.btn_4)
-        self.button_grid[1].append(self.btn_5)
         self.button_grid[1].append(self.btn_6)
+        self.button_grid[1].append(self.btn_5)
+        self.button_grid[1].append(self.btn_4)
         self.button_grid[2].append(self.btn_7)
-        self.button_grid[2].append(self.btn_8)
         self.button_grid[2].append(self.btn_9)
+        self.button_grid[2].append(self.btn_8)
         for i in range(3):
             for n in range(3):
                 self.button_grid[i][n].clicked.connect(self.new_step)
