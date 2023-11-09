@@ -1,7 +1,6 @@
 import sqlite3
 import sys
 import re
-from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QWidget
 from cupol import starter
 

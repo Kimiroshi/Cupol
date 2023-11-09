@@ -1,6 +1,0 @@
-False
-Темная
-Русский
-False
-QR
-QR

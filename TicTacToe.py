@@ -1,5 +1,4 @@
 import sys
-from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QWidget
 from cupol import starter
 
@@ -7,6 +6,13 @@ if starter.color == 'black':
     from TicTacToe_dark import Ui_Form
 else:
     from TicTacToe_white import Ui_Form
+
+if starter.language == 'rus':
+    win = 'Победил'
+    draw = 'Ничья!'
+else:
+    win = 'Победил'
+    draw = 'Draw!'
 
 
 class TicTacToe(QWidget, Ui_Form):
@@ -28,12 +34,12 @@ class TicTacToe(QWidget, Ui_Form):
         self.button_grid[0].append(self.btn_1)
         self.button_grid[0].append(self.btn_2)
         self.button_grid[0].append(self.btn_3)
-        self.button_grid[1].append(self.btn_4)
-        self.button_grid[1].append(self.btn_5)
         self.button_grid[1].append(self.btn_6)
+        self.button_grid[1].append(self.btn_5)
+        self.button_grid[1].append(self.btn_4)
         self.button_grid[2].append(self.btn_7)
-        self.button_grid[2].append(self.btn_8)
         self.button_grid[2].append(self.btn_9)
+        self.button_grid[2].append(self.btn_8)
         for i in range(3):
             for n in range(3):
                 self.button_grid[i][n].clicked.connect(self.new_step)
@@ -54,7 +60,7 @@ class TicTacToe(QWidget, Ui_Form):
                 self.symbols[i][n] = self.button_grid[i][n].text()
         if (len(set(self.symbols[0])) == 1 and self.symbols[0][0] != "") or \
                 (len({self.symbols[0][0], self.symbols[1][0], self.symbols[2][0]}) == 1 and self.symbols[0][0] != ""):
-            self.result_label.setText(f"Победил {self.symbols[0][0]}!")
+            self.result_label.setText(f"{win} {self.symbols[0][0]}!")
             for i in range(len(self.button_grid)):
                 for n in range(len(self.button_grid[i])):
                     self.button_grid[i][n].setEnabled(False)
@@ -65,18 +71,18 @@ class TicTacToe(QWidget, Ui_Form):
                  self.symbols[1][1] != "") or \
                 (len({self.symbols[0][2], self.symbols[1][1], self.symbols[2][0]}) == 1 and
                  self.symbols[1][1] != ""):
-            self.result_label.setText(f"Победил {self.symbols[1][1]}!")
+            self.result_label.setText(f"{win} {self.symbols[1][1]}!")
             for i in range(len(self.button_grid)):
                 for n in range(len(self.button_grid[i])):
                     self.button_grid[i][n].setEnabled(False)
         elif (len(set(self.symbols[2])) == 1 and self.symbols[2][2] != "") or \
                 (len({self.symbols[0][2], self.symbols[1][2], self.symbols[2][2]}) == 1 and self.symbols[2][2] != ""):
-            self.result_label.setText(f"Победил {self.symbols[2][2]}!")
+            self.result_label.setText(f"{win} {self.symbols[2][2]}!")
             for i in range(len(self.button_grid)):
                 for n in range(len(self.button_grid[i])):
                     self.button_grid[i][n].setEnabled(False)
         elif "" not in self.symbols[0] + self.symbols[1] + self.symbols[2]:
-            self.result_label.setText("Ничья!")
+            self.result_label.setText(f"{draw}")
             for i in range(len(self.button_grid)):
                 for n in range(len(self.button_grid[i])):
                     self.button_grid[i][n].setEnabled(False)
