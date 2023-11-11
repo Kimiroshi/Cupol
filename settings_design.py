@@ -26,6 +26,7 @@ class Ui_Settings(object):
     def setupUi(self, Settings):
         Settings.setObjectName("Settings")
         Settings.resize(375, 635)
+        Settings.setFixedSize(375, 635)
         Settings.setStyleSheet(
             "background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(218, 218, 218, 255));")
         self.centralwidget = QtWidgets.QWidget(Settings)

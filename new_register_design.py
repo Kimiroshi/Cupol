@@ -24,6 +24,7 @@ class Ui_RegisterPage(object):
     def setupUi(self, RegisterPage):
         RegisterPage.setObjectName("RegisterPage")
         RegisterPage.resize(375, 635)
+        RegisterPage.setFixedSize(375, 635)
         RegisterPage.setStyleSheet("background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(218, 218, 218, 255));")
         self.centralwidget = QtWidgets.QWidget(RegisterPage)
         self.centralwidget.setObjectName("centralwidget")
@@ -166,6 +167,7 @@ class Ui_RegisterPage(object):
         self.remember_me_button.setIconSize(QtCore.QSize(33, 33))
         self.remember_me_button.setObjectName("remember_me_button")
         RegisterPage.setCentralWidget(self.centralwidget)
+        self.welcome_label.setGeometry(37, 58, 321, 31)
 
         self.retranslateUi(RegisterPage)
         QtCore.QMetaObject.connectSlotsByName(RegisterPage)

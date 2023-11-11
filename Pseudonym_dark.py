@@ -22,6 +22,7 @@ class Ui_Pseudonym(object):
     def setupUi(self, Pseudonym):
         Pseudonym.setObjectName("Pseudonym")
         Pseudonym.resize(562, 554)
+        Pseudonym.setFixedSize(562, 554)
         Pseudonym.setStyleSheet(
             "background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(26, 53, 24, 255), stop:0.663158 rgba(35, 35, 35, 255));")
         self.stones_label = QtWidgets.QLabel(Pseudonym)

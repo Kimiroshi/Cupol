@@ -19,6 +19,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(668, 415)
+        MainWindow.setFixedSize(668, 415)
         MainWindow.setStyleSheet(
             "background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(26, 53, 24, 255), stop:0.663158 rgba(35, 35, 35, 255));")
         self.centralwidget = QtWidgets.QWidget(MainWindow)

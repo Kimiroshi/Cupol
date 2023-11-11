@@ -19,6 +19,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(668, 402)
+        MainWindow.setFixedSize(668, 415)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.calendarWidget = QtWidgets.QCalendarWidget(self.centralwidget)

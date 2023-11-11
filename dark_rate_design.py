@@ -15,6 +15,7 @@ class Ui_RateWindow(object):
     def setupUi(self, RateWindow):
         RateWindow.setObjectName("RateWindow")
         RateWindow.resize(561, 190)
+        RateWindow.setFixedSize(561, 190)
         RateWindow.setStyleSheet("background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(26, 53, 24, 255), stop:0.663158 rgba(35, 35, 35, 255));")
         self.centralwidget = QtWidgets.QWidget(RateWindow)
         self.centralwidget.setObjectName("centralwidget")

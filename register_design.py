@@ -15,6 +15,7 @@ class Ui_LoginPage(object):
     def setupUi(self, LoginPage):
         LoginPage.setObjectName("LoginPage")
         LoginPage.resize(375, 635)
+        LoginPage.setFixedSize(375, 635)
         font = QtGui.QFont()
         font.setBold(False)
         font.setWeight(50)

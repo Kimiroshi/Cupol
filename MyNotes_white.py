@@ -21,6 +21,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(334, 535)
+        Form.setFixedSize(334, 535)
         Form.setStyleSheet(
             "background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(218, 218, 218, 255));")
         self.contactName_label = QtWidgets.QLabel(Form)

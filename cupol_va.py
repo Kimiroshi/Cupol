@@ -12,7 +12,7 @@ from difflib import SequenceMatcher
 
 
 keywords_paths = ['Cup-all_en_windows_v3_0_0.ppn']
-porcupine = pvporcupine.create(access_key='Bj1AHInc4CAZFdDETzgPpr6SsoIW/1jMOE67vEhd6IIT0DhBYOZ3RQ==',
+porcupine = pvporcupine.create(access_key='DXsOgNbskzVNw/EB2Odau9aIp43vqVV0eaYhm9OVupqBogmCKyDtPA==',
                                keyword_paths=keywords_paths)
 recoder = PvRecorder(device_index=-1, frame_length=512)
 

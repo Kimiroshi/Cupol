@@ -8,7 +8,7 @@ if starter.color == "black":
 else:
     from AntiPlagiarism_white import Ui_MainWindow
 
-if starter.color == "black":
+if starter.language == "rus":
     text = 'Тексты похожи на'
     no = 'не плагиат'
     yes = 'плагиат'

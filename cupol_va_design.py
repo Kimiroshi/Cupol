@@ -15,6 +15,7 @@ class Ui_Cupol(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("Купол: голосовой помощник")
         MainWindow.resize(313, 313)
+        MainWindow.setFixedSize(313, 313)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)

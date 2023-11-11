@@ -22,6 +22,7 @@ class Ui_AccountWindow(object):
     def setupUi(self, AccountWindow):
         AccountWindow.setObjectName("AccountWindow")
         AccountWindow.resize(375, 635)
+        AccountWindow.setFixedSize(375, 635)
         font = QtGui.QFont()
         font.setFamily("Arimo")
         font.setPointSize(20)
